@@ -11,9 +11,9 @@ const Login = ({ history }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        firebase.auth().createUserWithEmailAndPassword(email, password)
+        firebase.auth().signInWithEmailAndPassword(email, password)
             .then(() => {
-                history.pushState("/Room")
+                history.push("/Room")
             })
             .catch(err => {
                 console.log(err)
@@ -29,7 +29,7 @@ const Login = ({ history }) => {
     return (
         <div>
             <h1>Login</h1>
-            <from onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
                 <div>
                     <label htmlFor='email'>E-mail</label>
                     <input
@@ -55,7 +55,7 @@ const Login = ({ history }) => {
                     />
                 </div>
                 <button type='submit'>Login</button>
-            </from>
+            </form>
         </div>
     )
 }

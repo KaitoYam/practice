@@ -12,7 +12,7 @@ const Room = () => {
         firebase.firestore().collection('messages')
             .onSnapshot((snapshot) => {
                 const messages = snapshot.docs.map(doc => {
-                    return doc.date()
+                    return doc.data()
                 })
 
                 setMessages(messages)
@@ -21,11 +21,22 @@ const Room = () => {
 
     const user = useContext(AuthContext)
 
-    const handleSubmit = () => {
-        firebase.firestore().collection('message').add({
-            content: value,
-            user: user.displayName
-        })
+    const handleSubmit = e => {
+        e.preventDefault()
+        firebase.firestore().collection('messages')
+            .add({
+                user: user.displayName,
+                content: value,
+                date: new Date()
+            })
+        setMessages([
+            ...messages,
+            {
+                user: user.displayName,
+                email: user.email,
+                content: value
+            }
+        ])
     }
 
 
@@ -34,22 +45,23 @@ const Room = () => {
             <h1>Room</h1>
             <ul>
                 <li>チャットアプリ</li>
-                {messages ? messages.map(message => (<li>{message.user}:{message.content}</li>)) 
-                : 
-                <p>...loading</p>
+                {messages ?
+                    messages.map(message =>
+                        (<li>{message.user}:{message.content}</li>)
+                    ) :
+                    <p>...loading</p>
                 }
             </ul>
             <form onSubmit={handleSubmit}>
                 <input
-                    type='type'
-                    value={value}
+                    type='text'
                     onChange={e => setValue(e.target.value)}
                 />
                 <button type='submit'>送信</button>
             </form>
-            <button onClick={() => firebase.auth().signOut}>Logout</button>
+            <button onClick={() => firebase.auth().signOut()}>Logout</button>
         </div>
     )
 }
 
-export default Room;
+export default Room
