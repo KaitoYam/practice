@@ -46,15 +46,15 @@ const Room = () => {
             <ul>
                 <li>チャットアプリ</li>
                 {messages ?
-                    messages.map(message =>
-                        (<li>{message.user}:{message.content}</li>)
+                    messages.map((message, id) =>
+                        (<li key={id}>{message.user}:{message.content}</li>)
                     ) :
                     <p>...loading</p>
                 }
             </ul>
             <form onSubmit={handleSubmit}>
                 <input
-                    type='text'
+                    type='text' id='tuika'
                     onChange={e => setValue(e.target.value)}
                 />
                 <button type='submit'>送信</button>
