@@ -1,0 +1,165 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+    margin: 2rem;
+}
+
+.tab_radio{
+    /*ラジオボタンは表示しない*/
+    display:none;
+  }
+  .tab_menu{
+    /*タブの基本スタイル*/
+    border: solid black;
+    border-width:1px 1px 0 1px;
+    border-radius:3px 3px 0 0;
+    margin: 0 auto;
+    padding:0 3px;
+    width:30%;
+    display:inline-block;
+    /*選択されていないタブは透明色*/
+    background-color:transport;
+  }
+  
+  .tab_radio:checked + .tab_menu{
+    /*選択されているタブは白背景*/
+    /* タブコンテンツの上線にかぶせて隠す */
+    background-color:white;
+  }
+  
+  .tab_contains{
+    /*コンテンツの基本スタイル*/
+    width:100%;
+    border: solid black 1px;
+    border-radius:3px;
+    padding:2rem;
+    /*選択されたタブで上線をかぶせる*/
+    margin-top:-1px;
+    background-color:white;
+    /*選択されていないコンテンツは非表示*/
+    display:none;
+
+  }
+  
+  #tab_radio_A:checked ~ #tab_contains_A,
+  #tab_radio_B:checked ~ #tab_contains_B,
+  #tab_radio_C:checked ~ #tab_contains_C{
+    display:block;
+  }
+  @media screen and (max-width: 480px) { 
+      img{
+          height: 100%;
+      }
+}
+
+/* iframe {
+    height: auto;
+    width: 100%;
+} */
+
+#iframe-parent {
+    position: relative;
+    width: 500px;
+}
+  
+#iframe-parent:before {
+    content: "";
+    display: block;
+    padding-top: 75%;
+}
+
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/*====================
+PCを基本設計にする
+ - 1280px〜：大型PC
+ - 960px〜1279px：小型PC
+ - 600px〜959px：タブレット
+ - 480px〜599px：スマートフォン横
+ - 〜479px：スマートフォン縦
+====================*/
+ 
+ 
+ 
+/* 1280px〜：大型PC
+------------------------------ */
+ 
+ここに基本CSSを書きます。
+PCファーストでは、PCサイズからモバイルの大きさに向けて、以降のCSSを書いていきます。
+ 
+ 
+/* 960px〜1279px：小型PC
+------------------------------ */
+@media screen and (min-width:960px) and (max-width:1279px) {
+ 
+}
+ 
+/* 600px〜959px：タブレット
+------------------------------ */
+@media screen and (min-width:600px) and (max-width:959px) {
+ 
+ 
+}
+ 
+ 
+/* 480px〜599px：SP横
+------------------------------ */
+@media screen and (min-width:480px) and (max-width:599px) { 
+    #iframe-parent {
+        position: relative;
+        width: 300px;
+    }
+      
+    #iframe-parent:before {
+        content: "";
+        display: block;
+        padding-top: 75%;
+    }
+    
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+ 
+ 
+}
+ 
+ 
+/* 〜479px：スマートフォン縦
+------------------------------ */
+@media screen and (max-width:479px) { 
+    #iframe-parent {
+        position: relative;
+        width: 200px;
+    }
+      
+    #iframe-parent:before {
+        content: "";
+        display: block;
+        padding-top: 75%;
+    }
+    
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
