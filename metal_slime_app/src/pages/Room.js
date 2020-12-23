@@ -9,16 +9,14 @@ const Room = () => {
     const [value, setValue] = useState('')
 
     useEffect(() => {
-        firebase.firestore().collection('messages')
-            .onSnapshot((snapshot) => {
-                const messages = snapshot.docs.map(doc => {
-                    return doc.data()
-                })
-
-                setMessages(messages)
+        firebase.firestore().collection('messages').orderBy('date')
+        .onSnapshot((snapshot) => {
+            const messages = snapshot.docs.map(doc => {
+                return doc.data()
             })
+            setMessages(messages)
+        })
     }, [])
-
     const user = useContext(AuthContext)
 
     const handleSubmit = e => {
@@ -34,7 +32,8 @@ const Room = () => {
             {
                 user: user.displayName,
                 email: user.email,
-                content: value
+                content: value,
+                date: new Date()
             }
         ])
     }
