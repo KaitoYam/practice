@@ -6,6 +6,8 @@ import Room from './pages/Room'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Recommended from './pages/Recommended'
+import Todo from './pages/todo/Todo'
+
 
 import { AuthProvider } from './AuthService'
 
@@ -20,6 +22,7 @@ const App = () => {
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/signup' component={SignUp} />
                     <Route exact path='/Recommended' component={Recommended} />
+                    <Route exact path='/Todo' component={Todo} />
                 </Switch>
             </Router>
         </AuthProvider>
