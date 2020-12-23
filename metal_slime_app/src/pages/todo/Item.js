@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 const Item = ({content, id, deleteTodo, isDone}) =>{
   const handleDelete = () => {
