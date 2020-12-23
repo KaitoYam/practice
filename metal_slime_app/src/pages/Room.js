@@ -9,15 +9,13 @@ const Room = () => {
     const [value, setValue] = useState('')
 
     useEffect(() => {
-        firebase.firestore().collection('messages')
-        .orderBy('createAt')    
+        firebase.firestore().collection('messages').orderBy('date')
         .onSnapshot((snapshot) => {
-                const messages = snapshot.docs.map(doc => {
-                    return doc.data()
-                })
-
-                setMessages(messages)
+            const messages = snapshot.docs.map(doc => {
+                return doc.data()
             })
+            setMessages(messages)
+        })
     }, [])
     const user = useContext(AuthContext)
 
@@ -35,7 +33,7 @@ const Room = () => {
                 user: user.displayName,
                 email: user.email,
                 content: value,
-                createAt: firebase.firestore.Timestamp.now()
+                date: new Date()
             }
         ])
     }
