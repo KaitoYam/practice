@@ -3,6 +3,8 @@ import firebase from '../config/Firebase'
 
 import { AuthContext } from '../AuthService'
 
+import { Link } from 'react-router-dom'
+
 const Room = () => {
 
     const [messages, setMessages] = useState(null)
@@ -10,12 +12,12 @@ const Room = () => {
 
     useEffect(() => {
         firebase.firestore().collection('messages').orderBy('date')
-        .onSnapshot((snapshot) => {
-            const messages = snapshot.docs.map(doc => {
-                return doc.data()
+            .onSnapshot((snapshot) => {
+                const messages = snapshot.docs.map(doc => {
+                    return doc.data()
+                })
+                setMessages(messages)
             })
-            setMessages(messages)
-        })
     }, [])
     const user = useContext(AuthContext)
 
@@ -41,9 +43,13 @@ const Room = () => {
 
     return (
         <div>
-            <h1>Room</h1>
+            <header>
+                <p><Link to="/todo">Todoリスト</Link></p>
+                <p><Link to="/Recommended">おすすめ</Link></p>
+            </header>
+            <h1>トーク</h1>
+            <p>チャットアプリ</p>
             <ul>
-                <li>チャットアプリ</li>
                 {messages ?
                     messages.map((message, id) =>
                         (<li key={id}>{message.user}:{message.content}</li>)
