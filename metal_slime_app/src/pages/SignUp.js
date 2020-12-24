@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import firebase from '../config/Firebase'
+
+import './style.css'
 
 const SignUp = () => {
 
@@ -18,16 +21,17 @@ const SignUp = () => {
             })
             .catch(err => {
                 console.log(err)
-        })
+            })
     }
 
     return (
-        <div>
-            <h1>Sign Up</h1>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor='name'>Name</label>
+        <div className='signlog-page'>
+            <form onSubmit={handleSubmit} className='signlog-form'>
+            <h1 id='title' className='signlog-title'>新規登録</h1>
+                <div className='signlog-input'>
+                    <p className='signlog-name'>名前</p>
                     <input
+                    className='input-name'
                         name='name'
                         type='name'
                         id='name'
@@ -37,9 +41,10 @@ const SignUp = () => {
                         }}
                     />
                 </div>
-                <div>
-                    <label htmlFor='email'>E-mail</label>
+                <div className='signlog-input'>
+                    <p className='signlog-name'>メールアドレス</p>
                     <input
+                    className='input-name'
                         name='email'
                         type='email'
                         id='email'
@@ -49,9 +54,10 @@ const SignUp = () => {
                         }}
                     />
                 </div>
-                <div>
-                    <label htmlFor='password'>Password</label>
+                <div className='signlog-input'>
+                    <p className='signlog-name'>パスワード</p>
                     <input
+                    className='input-name'
                         name='password'
                         type='password'
                         id='password'
@@ -61,8 +67,11 @@ const SignUp = () => {
                         }}
                     />
                 </div>
-                <button type='submit'>Sign Up</button>
+                <button type='submit'　className='signlog-button'>新規登録</button>
             </form>
+            <footer className='signlog'>
+                <p><Link to='/login'>ログインはこちら。</Link></p>
+            </footer>
         </div>
     )
 }
