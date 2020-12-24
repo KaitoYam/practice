@@ -1,8 +1,10 @@
-import React, { useState,useContext } from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { useState, useContext } from 'react'
+import { Redirect, Link } from 'react-router-dom'
 import { AuthContext } from '../AuthService'
 
 import firebase from '../config/Firebase'
+
+import './style.css'
 
 const Login = ({ history }) => {
 
@@ -23,16 +25,17 @@ const Login = ({ history }) => {
     const user = useContext(AuthContext)
 
     if (user) {
-        return <Redirect to ="/Room" />
+        return <Redirect to="/Room" />
     }
 
     return (
-        <div>
-            <h1>Login</h1>
-            <form onSubmit={handleSubmit} >
-                <div>
-                    <label htmlFor='email'>E-mail</label>
+        <div className='signlog-page'>
+            <form onSubmit={handleSubmit} className='signlog-form' >
+                <h1 id='title' className='signlog-title'>ログイン</h1>
+                <div className='signlog-input'>
+                    <p className='signlog-name'>メールアドレス</p>
                     <input
+                        className='input-name'
                         type='email'
                         id='email'
                         name='email'
@@ -42,9 +45,10 @@ const Login = ({ history }) => {
                         }}
                     />
                 </div>
-                <div>
-                    <label htmlFor='password'>Password</label>
+                <div className='signlog-input'>
+                    <p className='signlog-name'>パスワード</p>
                     <input
+                        className='input-name'
                         type='password'
                         id='password'
                         name='password'
@@ -54,8 +58,11 @@ const Login = ({ history }) => {
                         }}
                     />
                 </div>
-                <button type='submit'>Login</button>
+                <button type='submit' className='signlog-button'>ログイン</button>
             </form>
+            <footer className='signlog'>
+                <p><Link to='/signUp'>新規登録</Link></p>
+            </footer>
         </div>
     )
 }
