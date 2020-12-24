@@ -18,11 +18,11 @@ const App = () => {
         <AuthProvider>
             <Router>
                 <Switch>
-                    <LoggedInRoute exact path='/Room' component={Room} />
+                    <LoggedInRoute exact path='/Todo' component={Todo} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/signup' component={SignUp} />
+                    <Route exact path='/Room' component={Room} />
                     <Route exact path='/Recommended' component={Recommended} />
-                    <Route exact path='/Todo' component={Todo} />
                 </Switch>
             </Router>
         </AuthProvider>

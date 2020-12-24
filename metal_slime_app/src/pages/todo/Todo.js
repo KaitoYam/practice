@@ -1,32 +1,39 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Form from './Form'
 import List from './List'
 import shortid from 'shortid'
 
-const Todo = () =>{
+import { Link } from 'react-router-dom'
+
+const Todo = () => {
   const [todos, setTodos] = useState([])
   const addTodo = content => {
     setTodos([
       ...todos,
       {
         content: content,
-        id : shortid.generate(),
-        isDone : false
+        id: shortid.generate(),
+        isDone: false
       }
     ])
   }
   const deleteTodo = id => {
     setTodos(todos.filter(todo => todo.id !== id))
   }
-  return(
+
+  return (
     <>
-    <h1>TodoApp</h1>
-    <Form addTodo = {addTodo}/>
-    <List 
-      todos = {todos} 
-      deleteTodo = {deleteTodo} 
-    />
-      
+      <header>
+        <p><Link to="/Room">トークルーム</Link></p>
+        <p><Link to="/Recommended">おすすめ</Link></p>
+      </header>
+      <h1>TodoApp</h1>
+      <Form addTodo={addTodo} />
+      <List
+        todos={todos}
+        deleteTodo={deleteTodo}
+      />
+
     </>
   )
 }

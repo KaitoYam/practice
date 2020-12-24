@@ -3,7 +3,7 @@ import firebase from '../config/Firebase'
 
 import { AuthContext } from '../AuthService'
 
-import  cssTest  from '../css/test.module.css'
+import { Link } from 'react-router-dom'
 
 const Room = () => {
 
@@ -43,7 +43,11 @@ const Room = () => {
 
     return (
         <div>
-            <h1 className='cssTest.title'>トーク</h1>
+            <header>
+                <p><Link to="/todo">Todoリスト</Link></p>
+                <p><Link to="/Recommended">おすすめ</Link></p>
+            </header>
+            <h1>トーク</h1>
             <p>チャットアプリ</p>
             <ul>
                 {messages ?
