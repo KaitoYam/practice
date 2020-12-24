@@ -3,6 +3,8 @@ import css from './style.css'
 
 import { Link } from 'react-router-dom'
 
+import firebase from '../config/Firebase'
+
 const Recommended = () => {
     return (
 
@@ -10,25 +12,26 @@ const Recommended = () => {
             <header>
                 <p><Link to="/todo">Todoリスト</Link></p>
                 <p><Link to="/Room">トークルーム</Link></p>
+                <button onClick={() => firebase.auth().signOut()}>Logout</button>
             </header>
 
-            <input type="radio" name="tab_item" id="tab_radio_A" class="tab_radio" checked />
-            <label for="tab_radio_A" class="tab_menu">山口 海斗</label>
+            <input type="radio" name="tab_item" id="tab_radio_A" className="tab_radio" defaultChecked />
+            <label htmlFor="tab_radio_A" className="tab_menu">山口 海斗</label>
 
 
-            <input type="radio" name="tab_item" id="tab_radio_B" class="tab_radio" />
-            <label for="tab_radio_B" class="tab_menu">鈴木 孝太郎</label>
+            <input type="radio" name="tab_item" id="tab_radio_B" className="tab_radio" />
+            <label htmlFor="tab_radio_B" className="tab_menu">鈴木 孝太郎</label>
 
-            <input type="radio" name="tab_item" id="tab_radio_C" class="tab_radio" />
-            <label for="tab_radio_C" class="tab_menu">松本 彪</label>
+            <input type="radio" name="tab_item" id="tab_radio_C" className="tab_radio" />
+            <label htmlFor="tab_radio_C" className="tab_menu">松本 彪</label>
 
 
 
-            <div id="tab_contains_A" class="tab_contains">
+            <div id="tab_contains_A" className="tab_contains">
                 <ul>
                     <li>ポートフォリオの作り方が詳しく載っていてよかったです。</li>
                     <div id="iframe-parent">
-                        <iframe src="https://www.youtube.com/embed/pnsieVYy72M" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/pnsieVYy72M" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
                     </div>
                     <li>忘れてはいけない基本サイトです。</li>
                     <a href="https://developer.mozilla.org/ja/">MDN Web Docs</a>
@@ -38,12 +41,12 @@ const Recommended = () => {
             </div>
 
 
-            <div id="tab_contains_B" class="tab_contains">
+            <div id="tab_contains_B" className="tab_contains">
                 <p>CSSは、HTML文章の見た目にデザインを指定していきます。</p>
             </div>
 
 
-            <div id="tab_contains_C" class="tab_contains">
+            <div id="tab_contains_C" className="tab_contains">
                 <p>JavaScriptは、ユーザーの動きに反応したり、複雑なことをします。</p>
             </div>
         </div>

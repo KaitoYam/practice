@@ -6,7 +6,7 @@ import Room from './pages/Room'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Recommended from './pages/Recommended'
-import Todo from './pages/todo/Todo'
+import Todo from './todo/Todo'
 
 
 import { AuthProvider } from './AuthService'
@@ -18,11 +18,11 @@ const App = () => {
         <AuthProvider>
             <Router>
                 <Switch>
-                    <LoggedInRoute exact path='/Todo' component={Todo} />
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/signup' component={SignUp} />
-                    <Route exact path='/Room' component={Room} />
-                    <Route exact path='/Recommended' component={Recommended} />
+                    <LoggedInRoute exact path='/Room' component={Room} />
+                    <LoggedInRoute exact path='/Todo' component={Todo} />
+                    <LoggedInRoute exact path='/Recommended' component={Recommended} />
                 </Switch>
             </Router>
         </AuthProvider>

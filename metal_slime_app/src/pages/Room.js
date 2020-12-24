@@ -19,10 +19,16 @@ const Room = () => {
                 setMessages(messages)
             })
     }, [])
+
     const user = useContext(AuthContext)
 
     const handleSubmit = e => {
         e.preventDefault()
+        const textNone = document.getElementById('tuika')
+        if (textNone.value === '')
+            alert("ない")
+        else
+            textNone.value = ''
         firebase.firestore().collection('messages')
             .add({
                 user: user.displayName,
@@ -40,12 +46,12 @@ const Room = () => {
         ])
     }
 
-
     return (
         <div>
             <header>
                 <p><Link to="/todo">Todoリスト</Link></p>
                 <p><Link to="/Recommended">おすすめ</Link></p>
+                <button onClick={() => firebase.auth().signOut()}>Logout</button>
             </header>
             <h1>トーク</h1>
             <p>チャットアプリ</p>
@@ -64,7 +70,6 @@ const Room = () => {
                 />
                 <button type='submit'>送信</button>
             </form>
-            <button onClick={() => firebase.auth().signOut()}>Logout</button>
         </div>
     )
 }

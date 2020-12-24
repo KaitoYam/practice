@@ -5,6 +5,8 @@ import shortid from 'shortid'
 
 import { Link } from 'react-router-dom'
 
+import firebase from '../config/Firebase'
+
 const Todo = () => {
   const [todos, setTodos] = useState([])
   const addTodo = content => {
@@ -21,11 +23,14 @@ const Todo = () => {
     setTodos(todos.filter(todo => todo.id !== id))
   }
 
+  
+
   return (
     <>
       <header>
         <p><Link to="/Room">トークルーム</Link></p>
         <p><Link to="/Recommended">おすすめ</Link></p>
+        <button onClick={() => firebase.auth().signOut()}>Logout</button>
       </header>
       <h1>TodoApp</h1>
       <Form addTodo={addTodo} />
