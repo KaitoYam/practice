@@ -1,0 +1,67 @@
+/* ----- 共通-------- */
+
+#title {
+    font-size: 24px;
+}
+
+/* ----- 共通-------- */
+
+
+/* サインイン・ログインページ　 
+------------------*/
+.signlog-page {
+    width: 60%;
+    margin: 5rem auto;
+}
+.signlog-form {
+    text-align: center;
+    padding: 20px 40px 60px;
+    background-color: whitesmoke;
+}
+.signlog-title {
+    margin-bottom: 40px;
+}
+.signlog-input {
+    text-align: left;
+    padding: 0 80px;
+    margin-bottom: 2rem;
+}
+
+.signlog-name {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.input-name {
+    width: 90%;
+    font-size: 20px;
+}
+
+.signlog-button {
+    font-size: 12px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: 1px solid ;
+    color: #fff;
+    margin-top: 1rem;
+}
+.signup-btn {
+    background-color: limegreen;
+}
+.login-btn {
+    background-color: dodgerblue;
+}
+.signlog-button:hover {
+    opacity: .9;
+}
+/* サインイン・ログインページ
+------------------ */
+
+
+/* 新規登録・ログイン　移動タグ
+------------------- */
+.signlog {
+    padding: 30px 0;
+}
+/* 新規登録・ログイン　移動タグ
+------------------- */

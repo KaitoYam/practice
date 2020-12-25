@@ -4,7 +4,7 @@ import { AuthContext } from '../AuthService'
 
 import firebase from '../config/Firebase'
 
-import './style.css'
+import './signUp&login.css'
 
 const Login = ({ history }) => {
 
@@ -58,7 +58,7 @@ const Login = ({ history }) => {
                         }}
                     />
                 </div>
-                <button type='submit' className='signlog-button'>ログイン</button>
+                <button type='submit' className='signlog-button login-btn'>ログイン</button>
             </form>
             <footer className='signlog'>
                 <p><Link to='/signUp'>新規登録</Link></p>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import firebase from '../config/Firebase'
 
-import './style.css'
+import './signUp&login.css'
 
 const SignUp = () => {
 
@@ -67,7 +67,7 @@ const SignUp = () => {
                         }}
                     />
                 </div>
-                <button type='submit'　className='signlog-button'>新規登録</button>
+                <button type='submit'　className='signlog-button signup-btn'>新規登録</button>
             </form>
             <footer className='signlog'>
                 <p><Link to='/login'>ログインはこちら。</Link></p>
