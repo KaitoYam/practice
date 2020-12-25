@@ -53,6 +53,7 @@ const Room = () => {
             <header>
                 <p><Link to="/todo">Todoリスト</Link></p>
                 <p><Link to="/Recommended">おすすめ</Link></p>
+                <p><Link to="/album">卒業アルバム</Link></p>
                 <button onClick={() => firebase.auth().signOut()}>Logout</button>
                 <h1>トーク</h1>
             </header>

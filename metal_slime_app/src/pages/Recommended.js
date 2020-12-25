@@ -12,9 +12,11 @@ const Recommended = () => {
             <header>
                 <p><Link to="/todo">Todoリスト</Link></p>
                 <p><Link to="/Room">トークルーム</Link></p>
+                <p><Link to="/album">卒業アルバム</Link></p>
                 <button onClick={() => firebase.auth().signOut()}>Logout</button>
             </header>
 
+            <h1>おすすめ</h1>
             <input type="radio" name="tab_item" id="tab_radio_A" className="tab_radio" defaultChecked />
             <label htmlFor="tab_radio_A" className="tab_menu">山口 海斗</label>
 
@@ -29,25 +31,35 @@ const Recommended = () => {
 
             <div id="tab_contains_A" className="tab_contains">
                 <ul>
-                    <li>ポートフォリオの作り方が詳しく載っていてよかったです。</li>
-                    <div id="iframe-parent">
-                        <iframe src="https://www.youtube.com/embed/pnsieVYy72M" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-                    </div>
-                    <li>忘れてはいけない基本サイトです。</li>
-                    <a href="https://developer.mozilla.org/ja/">MDN Web Docs</a>
-                    <li>自分がおすすめする参考書です。</li>
-                    <a href="https://www.amazon.co.jp/%E7%A2%BA%E3%81%8B%E3%81%AA%E5%8A%9B%E3%81%8C%E8%BA%AB%E3%81%AB%E3%81%A4%E3%81%8FJavaScript%E3%80%8C%E8%B6%85%E3%80%8D%E5%85%A5%E9%96%80-%E7%AC%AC2%E7%89%88-%E7%8B%A9%E9%87%8E-%E7%A5%90%E6%9D%B1-ebook/dp/B07Y3FJ885/ref=sr_1_1?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&dchild=1&keywords=javascript&qid=1607577437&sr=8-1">Javascript「超」入門</a>
+                    <li>言語に限らず、firestoreやwordpressなど幅広移動ががある。動画も一つ一つが軽いので取り組みやすいです！</li>
+                    <a href="https://dotinstall.com/">ドットインストール</a>
+                    <li>gitのコマンドについて漫画で教えてくれます。意外とわかりやすい。</li>
+                    <a href="https://www.r-staffing.co.jp/engineer/entry/20190621_1">gitを漫画で理解</a>
                 </ul>
             </div>
 
 
             <div id="tab_contains_B" className="tab_contains">
-                <p>CSSは、HTML文章の見た目にデザインを指定していきます。</p>
+               <ul>
+                   <li>gitコマンドの意味がまとまっていて、分からない時に役立ちます！</li>
+                   <a href="https://kitsune.blog/git-command">gitコマンドの使い方 まとめ集</a>
+                   <li>VS codeのショートカットキーで作業効率が上がるので便利です！</li>
+                   <div id="iframe-parent">
+                   <iframe width="1280" height="720" src="https://www.youtube.com/embed/cNyvefTJOcM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>【完全保存版】VS Code ショートカット</iframe>
+                   </div>
+               </ul>
             </div>
 
 
             <div id="tab_contains_C" className="tab_contains">
-                <p>JavaScriptは、ユーザーの動きに反応したり、複雑なことをします。</p>
+                <ul>
+                    <li>初心者でもわかりやすいコードの基本的な書き方が学べます。</li>
+                    <a href="https://prog-8.com/">Progate</a>
+                    <li>gitがわからなくなったときにこれを見れば大体解決できます。</li>
+                    <a href="https://backlog.com/ja/git-tutorial/">サル先生のGit入門</a>
+
+
+                </ul>
             </div>
         </div>
     )

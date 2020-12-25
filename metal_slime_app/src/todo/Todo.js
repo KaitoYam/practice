@@ -30,6 +30,7 @@ const Todo = () => {
       <header>
         <p><Link to="/Room">トークルーム</Link></p>
         <p><Link to="/Recommended">おすすめ</Link></p>
+        <p><Link to="/album">卒業アルバム</Link></p>
         <button onClick={() => firebase.auth().signOut()}>Logout</button>
       </header>
       <h1>TodoApp</h1>
