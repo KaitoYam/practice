@@ -1,0 +1,52 @@
+/* トークルーム
+------------------- */
+.took {
+    width: 80%;
+    margin: 0 auto;
+}
+.took-form {
+    padding: 10px;
+    border-radius: 20px;
+    width: 55%;
+    background-color: rgb(43, 180, 180);
+    margin-top: 20px;
+}
+.took-form2 {
+    display: flex;
+    justify-content: space-around;
+}
+#tuika {
+    border: 0px;
+    width: 80%;
+    height: 20px;
+    margin: auto 0;
+}
+.took-button {
+    position: relative;
+    height: 10px;
+    width: 10px;
+    margin-top: 6px;
+    background-color: #697b91;   
+}
+.took-button::before{
+    position: absolute;
+    content:'';
+    border: 10px solid transparent;
+    border-bottom: 10px solid #697b91;
+    top: -17px;
+    left: -5px;
+}
+
+.message {
+    padding: 5px 10px;
+    font-size: 18px;
+    margin: 5px;
+    background-color: whitesmoke;
+    border-radius: 5px;
+}
+
+
+.room-ul {
+    list-style: none;
+    display: inline-block;
+}

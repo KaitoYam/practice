@@ -5,6 +5,8 @@ import { AuthContext } from '../AuthService'
 
 import { Link } from 'react-router-dom'
 
+import './room.css'
+
 const Room = () => {
 
     const [messages, setMessages] = useState(null)
@@ -52,24 +54,29 @@ const Room = () => {
                 <p><Link to="/todo">Todoリスト</Link></p>
                 <p><Link to="/Recommended">おすすめ</Link></p>
                 <button onClick={() => firebase.auth().signOut()}>Logout</button>
+                <h1>トーク</h1>
             </header>
-            <h1>トーク</h1>
-            <p>チャットアプリ</p>
-            <ul>
-                {messages ?
-                    messages.map((message, id) =>
-                        (<li key={id}>{message.user}:{message.content}</li>)
-                    ) :
-                    <p>...loading</p>
-                }
-            </ul>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type='text' id='tuika'
-                    onChange={e => setValue(e.target.value)}
-                />
-                <button type='submit'>送信</button>
-            </form>
+            <div className='took'>
+                <ul className='room-ul'>
+                    {messages ?
+                        messages.map((message, id) =>
+                            (<li key={id} className='message'>{message.user}:{message.content}</li>)
+                        ) :
+                        <p>...loading</p>
+                    }
+                </ul>
+                <form onSubmit={handleSubmit} className='took-form'>
+                    <div className='took-form2'>
+                        <input
+                            type='text'
+                            id='tuika'
+                            placeholder='メッセージを入力'
+                            onChange={e => setValue(e.target.value)}
+                        />
+                        <div type='submit' className='took-button'></div>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }
