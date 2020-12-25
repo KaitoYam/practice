@@ -28,7 +28,7 @@ const Room = () => {
         e.preventDefault()
         const textNone = document.getElementById('tuika')
         if (textNone.value === '')
-            alert("ない")
+            return;
         else
             textNone.value = ''
         firebase.firestore().collection('messages')
@@ -60,7 +60,7 @@ const Room = () => {
                 <ul className='room-ul'>
                     {messages ?
                         messages.map((message, id) =>
-                            (<li key={id} className='message'>{message.user}:{message.content}</li>)
+                            (<li key={id} className='messages'>{message.user}:{message.content}</li>)
                         ) :
                         <p>...loading</p>
                     }

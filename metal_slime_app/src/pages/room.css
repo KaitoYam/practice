@@ -1,3 +1,6 @@
+
+
+
 /* トークルーム
 ------------------- */
 .took {
@@ -5,7 +8,7 @@
     margin: 0 auto;
 }
 .took-form {
-    padding: 10px;
+    padding: 10px 20px;
     border-radius: 20px;
     width: 55%;
     background-color: rgb(43, 180, 180);
@@ -17,7 +20,7 @@
 }
 #tuika {
     border: 0px;
-    width: 80%;
+    width: 90%;
     height: 20px;
     margin: auto 0;
 }
@@ -37,7 +40,7 @@
     left: -5px;
 }
 
-.message {
+.messages {
     padding: 5px 10px;
     font-size: 18px;
     margin: 5px;
@@ -50,3 +53,37 @@
     list-style: none;
     display: inline-block;
 }
+
+
+/* ------------ レスポンシブ（sp型:375px）-------------- */
+
+@media screen and (min-width:375px) and (max-width:675px) {
+    .took {
+        width: 90%;
+    }
+    .took-form {
+        margin-top: 10px;
+        width: 70%;
+    }
+    .messages {
+        font-size: 14px;
+        margin: 10px;
+    }
+    #tuika {
+        width: 80%;
+        height: 15px;
+    }
+    .took-button {
+        height: 8px;
+        width: 8px;
+    }
+    .took-button::before {
+        border: 8px solid transparent;
+        border-bottom: 8px solid #697b91;
+        top: -14px;
+        left: -4px;
+    }
+}
+
+/* ------------ レスポンシブ（sp型:375px）-------------- */
+

@@ -65,3 +65,37 @@
 }
 /* 新規登録・ログイン　移動タグ
 ------------------- */
+
+
+/* ------------ レスポンシブ（sp型:375px）-------------- */
+
+@media screen and (min-width:375px) and (max-width:675px) {
+    .signlog-page {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .signlog-title {
+        margin-bottom: 20px;
+    }
+    .signlog-form {
+        padding: 20px 0;
+    }
+    .signlog-input {
+        padding: 0 50px;
+    }
+    .signlog-name {
+        font-size: 10px;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .input-name {
+        font-size: 14px;
+    }
+    .signlog {
+        padding: 20px 0;
+    }
+
+}
+
+/* ------------ レスポンシブ（sp型:375px）-------------- */
+
