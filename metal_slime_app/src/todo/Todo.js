@@ -44,6 +44,7 @@ const Todo = () => {
         <p ><Link to="/Recommended" className="link_todo">おすすめ</Link></p>
         <p ><Link to="/album" className="link_todo">卒業アルバム</Link></p>
       </div>
+      <h4 className="purpose">目標：アプリを一つ作る</h4>
       <Form addTodo={addTodo} />
       <ul className="list_style">
         {todos ?
