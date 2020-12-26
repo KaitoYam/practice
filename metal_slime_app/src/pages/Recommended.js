@@ -9,14 +9,16 @@ const Recommended = () => {
     return (
 
         <div className={css}>
-            <header>
-                <p><Link to="/todo">Todoリスト</Link></p>
-                <p><Link to="/Room">トークルーム</Link></p>
-                <p><Link to="/album">卒業アルバム</Link></p>
-                <button onClick={() => firebase.auth().signOut()}>Logout</button>
-            </header>
+            <h1 class="title_osusume">おすすめ</h1>
+            <button onClick={() => firebase.auth().signOut()}>Logout</button>
+            <div class="wrap_nav_osusume">
+                <p><Link to="/Room" class="link_osusume">トーク</Link></p>
+                <p><Link to="/todo" class="link_osusume">Todo</Link></p>
+                <p class="nav_osusume">おすすめ</p>
+                <p><Link to="/album" class="link_osusume">卒業アルバム</Link></p>
+                
+            </div>
 
-            <h1>おすすめ</h1>
             <input type="radio" name="tab_item" id="tab_radio_A" className="tab_radio" defaultChecked />
             <label htmlFor="tab_radio_A" className="tab_menu">山口 海斗</label>
 

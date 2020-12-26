@@ -50,13 +50,14 @@ const Room = () => {
 
     return (
         <div>
-            <header>
-                <p><Link to="/todo">Todoリスト</Link></p>
-                <p><Link to="/Recommended">おすすめ</Link></p>
-                <p><Link to="/album">卒業アルバム</Link></p>
-                <button onClick={() => firebase.auth().signOut()}>Logout</button>
-                <h1>トーク</h1>
-            </header>
+            <h1 class="title_chat">トーク</h1>
+            <button onClick={() => firebase.auth().signOut()}>Logout</button>
+            <div class="wrap_nav_chat">
+                <p class="nav_chat">トーク</p>
+                <p><Link to="/todo" class="link_chat">Todo</Link></p>
+                <p><Link to="/Recommended" class="link_chat">おすすめ</Link></p>
+                <p><Link to="/album" class="link_chat">卒業アルバム</Link></p>
+            </div>
             <div className='took'>
                 <ul className='room-ul'>
                     {messages ?

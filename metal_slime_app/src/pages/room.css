@@ -54,7 +54,29 @@
     display: inline-block;
 }
 
+/* 山口が追加しました */
+.wrap_nav_chat{
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
 
+/* 山口が追加しました */
+.title_chat{
+color: #000000;
+/* background-color: skyblue; */
+}
+
+/* 山口が追加しました */
+.nav_chat{
+    text-decoration: underline;
+}
+
+/* 山口が追加しました */
+.link_chat{
+    text-decoration: none;
+}
 /* ------------ レスポンシブ（sp型:375px）-------------- */
 
 @media screen and (min-width:375px) and (max-width:675px) {

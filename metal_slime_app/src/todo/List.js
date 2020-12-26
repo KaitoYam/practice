@@ -1,8 +1,10 @@
 import React from 'react'
 import Item from './Item'
+import './todo.css'
+
 const List = ({todos,deleteTodo}) =>{
   return(
-    <ul>
+    <ul class="list_style">
       {
         todos.map((todo) => {
           return (

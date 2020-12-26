@@ -1,0 +1,20 @@
+.title_todo{
+  background-color: skyblue;
+  color: #000000;
+}
+
+.wrap_todo{
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+.link_todo{
+  text-decoration: none;
+}
+.list_style{
+  list-style: none;
+}
+.nav_todo{
+  text-decoration: underline;
+}

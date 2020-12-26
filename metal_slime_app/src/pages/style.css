@@ -163,4 +163,27 @@ PCを基本設計にする
     }
 }
 
+/* 山口が追加しました */
+.title_osusume{
+    color: #000000;
+    /* background-color: skyblue; */
+}
+
+/* 山口が追加しました */
+.wrap_nav_osusume{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+/* 山口が追加しました */
+.link_osusume{
+    text-decoration: none;
+}
+
+/* 山口が追加しました */
+.nav_osusume{
+    text-decoration: underline;
+}
 

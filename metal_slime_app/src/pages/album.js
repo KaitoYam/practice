@@ -8,13 +8,14 @@ import firebase from '../config/Firebase'
 const album = () => {
     return (
         <div className={css}>
-            <header>
-                <p><Link to="/todo">Todoリスト</Link></p>
-                <p><Link to="/Room">トークルーム</Link></p>
-                <p><Link to="/Recommended">おすすめ</Link></p>
+            <h1 class="title_album">卒業アルバム</h1>
                 <button onClick={() => firebase.auth().signOut()}>Logout</button>
-            </header>
-             <h1>卒業アルバム</h1>
+            <div class="wrap_nav_album">
+                <p><Link to="/Room" class="link_album">トーク</Link></p>
+                <p><Link to="/todo" class="link_album">Todo</Link></p>
+                <p><Link to="/Recommended" class="link_album">おすすめ</Link></p>
+                <p class="nav_album">卒業アルバム</p>
+            </div>
                 <div class="table-scroll"> 
 
                     <table border="1">
