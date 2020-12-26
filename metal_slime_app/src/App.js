@@ -22,12 +22,11 @@ const App = () => {
                 <Switch>
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/signup' component={SignUp} />
-                    <Route exact path='/update' component={UpDate} />
+                    <LoggedInRoute exact path='/update' component={UpDate} />
                     <LoggedInRoute exact path='/Room' component={Room} />
                     <LoggedInRoute exact path='/Todo' component={Todo} />
                     <LoggedInRoute exact path='/Recommended' component={Recommended} />
                     <LoggedInRoute exact path='/album' component={album} />
-
                 </Switch>
             </Router>
         </AuthProvider>
