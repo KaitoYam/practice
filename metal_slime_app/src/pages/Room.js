@@ -62,7 +62,10 @@ const Room = () => {
                 <ul className='room-ul'>
                     {messages ?
                         messages.map((message, id) =>
-                            (<li key={id} className='messages'>{message.user}:{message.content}</li>)
+                            (<li key={id} >
+                                <p>{message.user}</p>
+                                <p className='messages'>{message.content}</p>
+                            </li>)
                         ) :
                         <p>...loading</p>
                     }

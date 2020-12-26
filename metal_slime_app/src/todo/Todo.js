@@ -26,13 +26,13 @@ const Todo = () => {
 
   return (
     <>
-      <h1 class="title_todo">TodoApp</h1>
+      <h1 className="title_todo">TodoApp</h1>
       <button onClick={() => firebase.auth().signOut()}>Logout</button>
-      <div class="wrap_todo">
-        <p ><Link to="/Room" class="link_todo">トーク</Link></p>
-        <p class="nav_todo">Todo</p> 
-        <p ><Link to="/Recommended" class="link_todo">おすすめ</Link></p>
-        <p ><Link to="/album" class="link_todo">卒業アルバム</Link></p>
+      <div className="wrap_todo">
+        <p ><Link to="/Room" className="link_todo">トーク</Link></p>
+        <p className="nav_todo">Todo</p> 
+        <p ><Link to="/Recommended" className="link_todo">おすすめ</Link></p>
+        <p ><Link to="/album" className="link_todo">卒業アルバム</Link></p>
       </div>
       <Form addTodo={addTodo} />
       <List

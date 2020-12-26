@@ -9,7 +9,7 @@ import Recommended from './pages/Recommended'
 import album from './pages/album'
 import Todo from './todo/Todo'
 
-
+import UpDate from './profile/UpDate'
 
 import { AuthProvider } from './AuthService'
 
@@ -22,6 +22,7 @@ const App = () => {
                 <Switch>
                     <Route exact path='/login' component={Login} />
                     <Route exact path='/signup' component={SignUp} />
+                    <Route exact path='/update' component={UpDate} />
                     <LoggedInRoute exact path='/Room' component={Room} />
                     <LoggedInRoute exact path='/Todo' component={Todo} />
                     <LoggedInRoute exact path='/Recommended' component={Recommended} />
