@@ -65,7 +65,8 @@
 /* 山口が追加しました */
 .title_chat{
 color: #000000;
-/* background-color: skyblue; */
+background-color: rgb(135, 207, 235);
+margin-bottom: 20px;
 }
 
 /* 山口が追加しました */
@@ -77,6 +78,14 @@ color: #000000;
 .link_chat{
     text-decoration: none;
 }
+
+/* 山口が追加しました */
+.goto_update{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
 /* ------------ レスポンシブ（sp型:375px）-------------- */
 
 @media screen and (min-width:375px) and (max-width:675px) {

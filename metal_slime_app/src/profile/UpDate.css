@@ -1,0 +1,19 @@
+/* 山口が追加しました */
+.wrap_nav_update{
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+/* 山口が追加しました */
+.title_update{
+color: #000000;
+background-color: skyblue;
+margin-bottom: 20px;
+}
+
+/* 山口が追加しました */
+.link_update{
+    text-decoration: none;
+}
