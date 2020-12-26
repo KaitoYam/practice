@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Form from './Form'
 import List from './List'
 import shortid from 'shortid'
@@ -8,21 +8,35 @@ import firebase from '../config/Firebase'
 
 const Todo = () => {
   const [todos, setTodos] = useState([])
-  const addTodo = content => {
-    setTodos([
-      ...todos,
-      {
-        content: content,
-        id: shortid.generate(),
-        isDone: false
-      }
-    ])
+  const addTodo = contents => {
+    console.log(contents)
+    firebase.firestore().collection('todos')
+      .add({
+        state: false,
+        content: contents,
+        date: new Date()
+      })
   }
   const deleteTodo = id => {
     setTodos(todos.filter(todo => todo.id !== id))
   }
 
-  
+  useEffect(() => {
+    firebase.firestore().collection('todos').orderBy('date')
+      .onSnapshot((snapshot) => {
+        const todos = snapshot.docs.map(doc => {
+          return doc.data()
+        })
+        setTodos(todos)
+      })
+    var delete_todos = firebase.firestore().collection('todos').where("state", "==", true);
+    delete_todos.get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        console.log(doc.id, " => ", doc.data());
+        doc.ref.delete();
+      });
+    })
+  }, [])
 
   return (
     <>
@@ -35,11 +49,24 @@ const Todo = () => {
         <p ><Link to="/album" className="link_todo">卒業アルバム</Link></p>
       </div>
       <Form addTodo={addTodo} />
-      <List
-        todos={todos}
-        deleteTodo={deleteTodo}
-      />
-
+      <ul className="list_style">
+        {todos ?
+          todos.map((todo, id) =>
+          (<li key={id}>
+            <input type="checkbox" onChange={() => {
+              firebase.firestore().collection('todos').where("content", "==", todo.content).get().then(function (querySnapshot) {
+                querySnapshot.forEach(function (doc) {
+                  doc.ref.update({state: !doc.data().state});
+                });
+              })
+            }}
+            />
+            <span>{todo.content}</span>
+          </li>)
+          ) :
+          <p>...loading</p>
+        }
+      </ul>
     </>
   )
 }

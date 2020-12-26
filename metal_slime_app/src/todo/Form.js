@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 
 const Form = ({addTodo}) => {
-const [value, setValue] = useState('')
-const handleSubmit = e => {
-  e.preventDefault()
-  console.log('value: ', value)
+  const [value, setValue] = useState('')
+  const handleSubmit = e => {
+    e.preventDefault()
+    console.log('value: ', value)
 
   //JSを使ってフォーム内テキストをゲット
   var reflesh = document.getElementById("inptext");
@@ -16,7 +16,7 @@ const handleSubmit = e => {
 
   //JSを使ってフォーム内テキストをリセット
     reflesh.value ="";
-}
+  }
 
   return (
     <form onSubmit = {handleSubmit}>
