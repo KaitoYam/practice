@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import firebase, { storage } from '../config/Firebase'
@@ -12,36 +12,45 @@ const UpDate = () => {
         // e.target.files[0]　でファイル選択で選ばせたファイルになる
         setImage(image)
     }
-    
+
     const user = useContext(AuthContext)
 
+    useEffect(() => {
+        firebase.firestore().collection('profile')
+            .onSnapshot((snapshot) => {
+                const image = snapshot.docs.map(doc => {
+                    return doc.data()
+                })
+                setImage(image)
+            })
+    }, [])
     // const updateProfileDate = {
     //     imageUrl:''
     // }
-    const handleUpdate = e => {
-        e.preventDefault()
-        // if (imageUrl !== user.imageUrl) {
-        //     updateProfileDate = {
-        //         ...updateProfileDate,imageUrl:imageUrl
-        //     }
-        // }
-    }
+    // const handleUpdate = e => {
+    //     e.preventDefault()
+    // if (imageUrl !== user.imageUrl) {
+    //     updateProfileDate = {
+    //         ...updateProfileDate,imageUrl:imageUrl
+    //     }
+    // }
+    // }
     const onSubmit = e => {
         e.preventDefault()
         if (image === '') {
             return;
         }
 
-        
-        
+
+
         firebase.firestore().collection('profile').add({
             user: user.displayName,
             date: new Date(),
-            imgUrl:imageUrl
+            imgUrl: imageUrl
         })
-        
+
         // アップロード処理
-        
+
         const uploadTask = storage.ref(`/images/${image.name}`).put(image);
         // storage.ref(`/images/${image.name}`) でfirebase storageにフォルダとファイル名を指定し、アップロード
         uploadTask.on(
