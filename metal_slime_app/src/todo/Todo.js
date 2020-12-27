@@ -5,6 +5,11 @@ import { AuthContext } from '../AuthService'
 import './todo.css'
 import firebase from '../config/Firebase'
 
+//MaaterialUI
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 const Todo = () => {
   const [todos, setTodos] = useState([])
   const user = useContext(AuthContext)
@@ -18,6 +23,14 @@ const Todo = () => {
         user:user.displayName
       })
   }
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+  }));
+
   useEffect(() => {
     firebase.firestore().collection('todos').where("user", "==", user.displayName).onSnapshot((snapshot) => {
         const todos = snapshot.docs.map(doc => {
@@ -34,10 +47,14 @@ const Todo = () => {
     })
   }, [])
 
+  //MaterialUI
+  const classes = useStyles();
+
   return (
     <>
       <h1 className="title_todo">Todoリスト</h1>
-      <button onClick={() => firebase.auth().signOut()}>Logout</button>
+      <Button size="small" variant="outlined" onClick={() => firebase.auth().signOut()}>ログアウト</Button>
+      {/* <button onClick={() => firebase.auth().signOut()}>Logout</button> */}
       <div className="wrap_todo">
         <p ><Link to="/Room" className="link_todo">トーク</Link></p>
         <p className="nav_todo">Todo</p> 
