@@ -4,19 +4,19 @@ import css from './album.css'
 import { Link } from 'react-router-dom'
 
 import firebase from '../config/Firebase'
-
+import Button from '@material-ui/core/Button';
 const album = () => {
     return (
         <div className={css}>
-            <h1 class="title_album">卒業アルバム</h1>
-                <button onClick={() => firebase.auth().signOut()}>Logout</button>
-            <div class="wrap_nav_album">
-                <p><Link to="/Room" class="link_album">トーク</Link></p>
-                <p><Link to="/todo" class="link_album">Todo</Link></p>
-                <p><Link to="/Recommended" class="link_album">おすすめ</Link></p>
-                <p class="nav_album">卒業アルバム</p>
+            <h1 className="title_album">卒業アルバム</h1>
+            <Button size="small" variant="outlined"　onClick={() => firebase.auth().signOut()}>ログアウト</Button>
+            <div className="wrap_nav_album">
+                <p><Link to="/Room" className="link_album">トーク</Link></p>
+                <p><Link to="/todo" className="link_album">Todo</Link></p>
+                <p><Link to="/Recommended" className="link_album">おすすめ</Link></p>
+                <p className="nav_album">卒業アルバム</p>
             </div>
-                <div class="table-scroll"> 
+                <div className="table-scroll"> 
 
                     <table border="1">
                         <tr>

@@ -4,30 +4,33 @@ import css from './style.css'
 import { Link } from 'react-router-dom'
 
 import firebase from '../config/Firebase'
+import Button from '@material-ui/core/Button';
+
+
 
 const Recommended = () => {
     return (
 
         <div className={css}>
-            <h1 class="title_osusume">おすすめ</h1>
-            <button onClick={() => firebase.auth().signOut()}>Logout</button>
-            <div class="wrap_nav_osusume">
-                <p><Link to="/Room" class="link_osusume">トーク</Link></p>
-                <p><Link to="/todo" class="link_osusume">Todo</Link></p>
-                <p class="nav_osusume">おすすめ</p>
-                <p><Link to="/album" class="link_osusume">卒業アルバム</Link></p>
+            <h1 className="title_osusume">おすすめ</h1>
+            <Button size="small" variant="outlined" onClick={() => firebase.auth().signOut()}>ログアウト</Button>
+            <div className="wrap_nav_osusume">
+                <p><Link to="/Room" className="link_osusume">トーク</Link></p>
+                <p><Link to="/todo" className="link_osusume">Todo</Link></p>
+                <p className="nav_osusume">おすすめ</p>
+                <p><Link to="/album" className="link_osusume">卒業アルバム</Link></p>
                 
             </div>
 
             <input type="radio" name="tab_item" id="tab_radio_A" className="tab_radio" defaultChecked />
-            <label htmlFor="tab_radio_A" className="tab_menu">山口 海斗</label>
+            <label htmlFor="tab_radio_A" className="tab_menu">山口海斗</label>
 
 
             <input type="radio" name="tab_item" id="tab_radio_B" className="tab_radio" />
-            <label htmlFor="tab_radio_B" className="tab_menu">鈴木 孝太郎</label>
+            <label htmlFor="tab_radio_B" className="tab_menu">鈴木孝太郎</label>
 
             <input type="radio" name="tab_item" id="tab_radio_C" className="tab_radio" />
-            <label htmlFor="tab_radio_C" className="tab_menu">松本 彪</label>
+            <label htmlFor="tab_radio_C" className="tab_menu">松本彪</label>
 
 
 
