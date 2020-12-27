@@ -4,6 +4,7 @@ import './todo.css'
 
 const List = ({todos,deleteTodo}) =>{
   return(
+    
     <ul className="list_style">
       {
         todos.map((todo) => {

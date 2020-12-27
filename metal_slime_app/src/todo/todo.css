@@ -1,6 +1,7 @@
 .title_todo{
   background-color: skyblue;
   color: #000000;
+  margin-bottom: 20px;
 }
 
 .wrap_todo{
@@ -17,4 +18,9 @@
 }
 .nav_todo{
   text-decoration: underline;
+}
+
+.purpose{
+  background-color: #ffff00;
+  margin-bottom: 15px;
 }

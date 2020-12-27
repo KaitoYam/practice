@@ -1,10 +1,17 @@
 import React, {useState} from 'react'
 
+
+//MaaterialUI
+
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+
 const Form = ({addTodo}) => {
-const [value, setValue] = useState('')
-const handleSubmit = e => {
-  e.preventDefault()
-  console.log('value: ', value)
+  const [value, setValue] = useState('')
+  const handleSubmit = e => {
+    e.preventDefault()
+    console.log('value: ', value)
 
   //JSを使ってフォーム内テキストをゲット
   var reflesh = document.getElementById("inptext");
@@ -16,19 +23,22 @@ const handleSubmit = e => {
 
   //JSを使ってフォーム内テキストをリセット
     reflesh.value ="";
-}
-
+  }
+  //MaterialUI
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+  }));
+  const classes = useStyles();
   return (
-    <form onSubmit = {handleSubmit}>
-      <input
-        type="text"
-        id = "inptext"
-        onChange={e => {
+  <form onSubmit = {handleSubmit} className={classes.root} noValidate autoComplete="off">
+      <TextField size="small" id="inptext" label="todoの追加" onChange={e => {
           setValue(e.target.value)
-        }}
-      />
-      <input type="submit" />
-    </form>
+        }}/>
+  </form>
   )
 }
 
