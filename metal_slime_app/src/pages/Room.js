@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 
 import './room.css'
 
+import Button from '@material-ui/core/Button';
+
 const Room = () => {
 
     const [messages, setMessages] = useState(null)
@@ -52,7 +54,7 @@ const Room = () => {
         <div>
             <h1 className="title_chat">トーク</h1>
             <div className="goto_update">
-            <button onClick={() => firebase.auth().signOut()}>Logout</button>
+                <Button size="small" variant="outlined" onClick={() => firebase.auth().signOut()}>ログアウト</Button>
             <p><Link to="/update" className="link_chat">プロフィール変更</Link></p>
             </div>
             <div className="wrap_nav_chat">

@@ -4,6 +4,8 @@ import './UpDate.css'
 import firebase, { storage } from '../config/Firebase'
 import { AuthContext } from '../AuthService'
 
+import Button from '@material-ui/core/Button';
+
 const UpDate = () => {
     const [image, setImage] = useState('')
     const [imageUrl, setImageUrl] = useState('')
@@ -89,7 +91,7 @@ const UpDate = () => {
     return (
         <div>
             <h1 className="title_update">プロフィール編集</h1>
-            <button onClick={() => firebase.auth().signOut()}>Logout</button>
+            <Button size="small" variant="outlined" onClick={() => firebase.auth().signOut()}>ログアウト</Button>
             <div className="wrap_nav_update">
                 <p><Link to="/room" className="link_update">トーク</Link></p>
                 <p><Link to="/todo" className="link_update">Todo</Link></p>
