@@ -1,6 +1,6 @@
 /* 山口が追加しました */
 .wrap_nav_update{
-  width: 300px;
+  width: 400px;
   display: flex;
   justify-content: space-between;
   padding-bottom: 20px;
@@ -19,7 +19,6 @@ margin-bottom: 20px;
 }
 
 /* -------  プロフィールCSS　---------- */
-
 .profile {
   text-align: center;
   position: relative;
