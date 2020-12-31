@@ -52,7 +52,7 @@ const UpDate = () => {
                 <p><Link to="/todo" className="link_update">Todo</Link></p>
                 <p><Link to="/Recommended" className="link_update">おすすめ</Link></p>
                 <p><Link to="/album" className="link_update">卒業アルバム</Link></p>
-                <button onClick={() => firebase.auth().signOut()}>Logout</button>
+                <Button size="small" variant="outlined" onClick={() => firebase.auth().signOut()}>ログアウト</Button>
             </div>
             <div className='profile'>
                 <Paper style={{ padding: 16 }} elevation={1} >

@@ -58,11 +58,12 @@ const handleSubmit = e => {
     ])
 }
 
-return (
-    <div>
-        <h1 className="title_chat">トーク</h1>
-        <div className="goto_update">
-            <Button size='small' variant='outlined' onClick={() => firebase.auth().signOut()}>ログアウト</Button>
+
+    return (
+        <div>
+            <h1 className="title_chat">トーク</h1>
+            <div className="goto_update">
+                <Button size="small" variant="outlined" onClick={() => firebase.auth().signOut()}>ログアウト</Button>
             <p><Link to="/update" className="link_chat">プロフィール変更</Link></p>
         </div>
         <div className="wrap_nav_chat">
