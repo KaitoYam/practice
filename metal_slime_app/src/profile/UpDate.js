@@ -1,107 +1,74 @@
 import React, { useState, useContext, useEffect } from 'react'
+
 import { Link } from 'react-router-dom'
+import profile from '../img/profile.img.jpg'
 import './UpDate.css'
-import firebase, { storage } from '../config/Firebase'
+import { Button, Paper, Fab } from '@material-ui/core'
+import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate'
+
+import firebase from '../config/Firebase'
 import { AuthContext } from '../AuthService'
 
+
 const UpDate = () => {
-    const [image, setImage] = useState('')
-    const [imageUrl, setImageUrl] = useState('')
-    const handleImage = e => {
-        const image = e.target.files[0];
-        // e.target.files[0]でファイル選択で選ばせたファイルになる
-        setImage(image)
-    }
+    const [image, setImage] = useState(null)
 
     const user = useContext(AuthContext)
 
     useEffect(() => {
-        firebase.firestore().collection('profile')
-            .onSnapshot((snapshot) => {
-                const image = snapshot.docs.map(doc => {
-                    return doc.data()
-                })
-                setImage(image)
-            })
+        firebase.storage().ref().child(`images/${user.uid}`).getDownloadURL().then(fireBaseUrl => {
+            //アップロードした画像のURLを取得
+            setImage(fireBaseUrl)
+        })
     }, [])
-    // const updateProfileDate = {
-    //     imageUrl:''
-    // }
-    // const handleUpdate = e => {
-    //     e.preventDefault()
-    // if (imageUrl !== user.imageUrl) {
-    //     updateProfileDate = {
-    //         ...updateProfileDate,imageUrl:imageUrl
-    //     }
-    // }
-    // }
-    const onSubmit = e => {
-        e.preventDefault()
-        if (image === '') {
-            return;
-        }
 
+    const handleImage = e => {
+        const images = e.target.files
+        // e.target.filesでファイル選択で選んだファイルになる
+        let blob = new Blob(images, { type: "image/jpeg" })
 
+        const uploadTask = firebase.storage().ref().child(`/images/${user.uid}`).put(blob)
 
-        firebase.firestore().collection('profile').add({
-            user: user.displayName,
-            date: new Date(),
-            imgUrl: imageUrl
+        uploadTask.then(() => {
+            // 通信が成功した時の処理(then)
+            uploadTask.snapshot.ref.getDownloadURL().then((fireBaseUrl => {
+                setImage(fireBaseUrl)
+                console.log('new', image)
+            }))
         })
-
-        // アップロード処理
-
-        const uploadTask = storage.ref(`/images/${image.name}`).put(image);
-        // storage.ref(`/images/${image.name}`) でfirebase storageにフォルダとファイル名を指定し、アップロード
-        uploadTask.on(
-            firebase.storage.TaskEvent.state_changed,
-            next,
-            error,
-            complete
-        )
-        // nextはアップロードの進行度や状態を取得するための関数
-        // error エラーが起きた時の処理
-        // complete アップロード成功後の処理
-
+            .then(() => {
+                user.updateProfile({
+                    photoURL: image
+                })
+            })
     }
 
-    const next = snapshot => {
-        // 進行中のsnapshotを得る
-        // アップロードの進行度を表示
-        const precent = (snapshot.bytesTtansferred / snapshot.totalBytes)
-        console.log(precent + '% done')
-        console.log(snapshot)
-    }
-
-    const error = () => {
-        // エラーハンドリング
-        console.log('error')
-    }
-
-    const complete = () => {
-        // 完了後の処理
-        //画像表示のため、アップロードした画像のURLを取得
-        storage.ref('images').child(image.name).getDownloadURL().then(fireBaseUrl => {
-            setImageUrl(fireBaseUrl)
-        })
-    }
 
     return (
         <div>
             <h1 className="title_update">プロフィール編集</h1>
-            <button onClick={() => firebase.auth().signOut()}>Logout</button>
             <div className="wrap_nav_update">
                 <p><Link to="/room" className="link_update">トーク</Link></p>
                 <p><Link to="/todo" className="link_update">Todo</Link></p>
                 <p><Link to="/Recommended" className="link_update">おすすめ</Link></p>
                 <p><Link to="/album" className="link_update">卒業アルバム</Link></p>
+                <button onClick={() => firebase.auth().signOut()}>Logout</button>
             </div>
-            <form onSubmit={onSubmit}>
-                <input type='file' onChange={handleImage} />
-                <button>Upload</button>
-            </form>
-            <img src={imageUrl} alt='' />
-            {/* <button onSubmit={handleUpdate}>更新</button> */}
+            <div className='profile'>
+                <Paper style={{ padding: 16 }} elevation={1} >
+                    <div className='preview'>
+                        <img src={image ? image : profile} className='preview-img' alt='プレビュー画像表示' />
+                    </div>
+                    <input type='file' id='button-file' className='button-file' onChange={handleImage} />
+                    <div className='icon-file'>
+                        <Fab>
+                            <label htmlFor='button-file' className='label-size'>
+                                <AddPhotoAlternateIcon />
+                            </label>
+                        </Fab>
+                    </div>
+                </Paper>
+            </div>
         </div>
     )
 }
