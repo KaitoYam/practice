@@ -9,7 +9,6 @@ import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate'
 import firebase from '../config/Firebase'
 import { AuthContext } from '../AuthService'
 
-
 const UpDate = () => {
     const [image, setImage] = useState(null)
 
@@ -47,6 +46,7 @@ const UpDate = () => {
     return (
         <div>
             <h1 className="title_update">プロフィール編集</h1>
+
             <div className="wrap_nav_update">
                 <p><Link to="/room" className="link_update">トーク</Link></p>
                 <p><Link to="/todo" className="link_update">Todo</Link></p>
