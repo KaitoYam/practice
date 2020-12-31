@@ -41,6 +41,10 @@
 }
 
 .messages {
+    display: flex;
+}
+
+.message {
     padding: 5px 10px;
     font-size: 18px;
     margin: 5px;
@@ -52,6 +56,18 @@
 .room-ul {
     list-style: none;
     display: inline-block;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-right: 10px;
+}
+.icon-img {
+    width: 100%;
+    height: 100%;
 }
 
 /* 山口が追加しました */
