@@ -17,3 +17,31 @@ margin-bottom: 20px;
 .link_update{
     text-decoration: none;
 }
+
+/* -------  プロフィールCSS　---------- */
+
+.profile {
+  text-align: center;
+  position: relative;
+}
+.preview {
+  width: 300px;
+  margin: 0 auto;
+}
+.preview-img {
+  width: 100%;
+}
+
+.button-file {
+  display: none;
+}
+
+.label-size {
+  padding: 15px;
+}
+
+.icon-file {
+  position: absolute;
+  bottom: 0;
+  right: 160px;
+}
