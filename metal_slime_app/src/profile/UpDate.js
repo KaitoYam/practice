@@ -25,8 +25,10 @@ const UpDate = () => {
         const images = e.target.files
         // e.target.filesでファイル選択で選んだファイルになる
         let blob = new Blob(images, { type: "image/jpeg" })
+        //Blob()コンストラクタはimages(画像など)をデータ化したもの
 
         const uploadTask = firebase.storage().ref().child(`/images/${user.uid}`).put(blob)
+        //putでデータをアップロードする
 
         uploadTask.then(() => {
             // 通信が成功した時の処理(then)
