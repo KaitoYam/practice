@@ -40,35 +40,81 @@
     left: -5px;
 }
 
-.messages {
-    display: flex;
-}
-
-.message {
-    padding: 5px 10px;
-    font-size: 18px;
-    margin: 5px;
-    background-color: whitesmoke;
-    border-radius: 5px;
-}
-
-
 .room-ul {
-    list-style: none;
+    width: 100%;
+    height: 400px;
+    overflow-y: scroll;
     display: inline-block;
 }
+
+.user-name {
+    margin-left: 10px;
+}
+
+.messages-left {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.messages-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.message-left {
+    padding: 5px 10px;
+    font-size: 18px;
+    background-color: lightgray;
+    border-radius: 5px;
+    margin-left: 15px;
+    position: relative;
+}
+.message-left::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: -20px;
+    border: 8px solid transparent;
+    border-left: 18px solid lightgray;
+    -webkit-transform: rotate(-150deg);
+    transform: rotate(-150deg);
+}
+
+.message-right {
+    padding: 5px 10px;
+    font-size: 18px;
+    background-color: dodgerblue;
+    border-radius: 5px;
+    color: #fff;
+    margin-right: 20px;
+    position: relative;
+}
+.message-right::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: -18px;
+    border: 8px solid transparent;
+    border-left: 18px solid dodgerblue;
+    -webkit-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+}
+
 
 .icon {
     width: 50px;
     height: 50px;
     overflow: hidden;
     border-radius: 10px;
-    margin-right: 10px;
 }
 .icon-img {
     width: 100%;
     height: 100%;
 }
+/* ----トークルーム---- */
+
 
 /* 山口が追加しました */
 .wrap_nav_chat{
@@ -81,7 +127,7 @@
 /* 山口が追加しました */
 .title_chat{
 color: #000000;
-/* background-color: rgb(135, 207, 235); */
+background-color: rgb(135, 207, 235);
 margin-bottom: 20px;
 }
 
@@ -111,6 +157,9 @@ margin-bottom: 20px;
     .took-form {
         margin-top: 10px;
         width: 70%;
+    }
+    .room-ul {
+        height: 550px;
     }
     .messages {
         font-size: 14px;

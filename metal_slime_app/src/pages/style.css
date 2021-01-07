@@ -166,7 +166,7 @@ PCを基本設計にする
 /* 山口が追加しました */
 .title_osusume{
     color: #000000;
-    /* background-color: skyblue; */
+    background-color: skyblue;
     margin-bottom: 20px;
 }
 
