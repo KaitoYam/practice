@@ -127,6 +127,44 @@ const Room = () => {
                     </div>
                 </form>
             </div>
+=======
+                <Button size="small" variant="outlined" onClick={() => firebase.auth().signOut()}>ログアウト</Button>
+            <p><Link to="/update" className="link_chat">プロフィール変更</Link></p>
+        </div>
+        <div className="wrap_nav_chat">
+            <p className="nav_chat">トーク</p>
+            <p><Link to="/todo" className="link_chat">Todo</Link></p>
+            <p><Link to="/Recommended" className="link_chat">おすすめ</Link></p>
+            <p><Link to="/album" className="link_chat">卒業アルバム</Link></p>
+        </div>
+        <div className='took'>
+            <ul className='room-ul'>
+                {messages ?
+                    messages.map((message, id) =>
+                    (<li key={id} className='messages' >
+                        <div className='icon'>
+                            <img className='icon-img' src={message.image ? message.image : profile} />
+                        </div>
+                        <div>
+                            <p >{message.user}</p>
+                            <p className='message'>{message.content}</p>
+                        </div>
+                    </li>)
+                    ) :
+                    <p>...loading</p>
+                }
+            </ul>
+            <form onSubmit={handleSubmit} className='took-form'>
+                <div className='took-form2'>
+                    <input
+                        type='text'
+                        id='tuika'
+                        placeholder='メッセージを入力'
+                        onChange={e => setValue(e.target.value)}
+                    />
+                    <div type='submit' className='took-button'></div>
+                </div>
+            </form>
         </div>
     )
 }
