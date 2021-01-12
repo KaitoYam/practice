@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useContext,useRef } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import firebase from '../config/Firebase'
 
 import { AuthContext } from '../AuthService'
 
-import { Link } from 'react-router-dom'
-
 import './room.css'
 import profile from '../img/profile.img.jpg'
-import { Button, Paper, Avatar, ImageList } from '@material-ui/core'
+import { Paper, Avatar } from '@material-ui/core'
 
 const Room = () => {
 
@@ -37,7 +35,7 @@ const Room = () => {
     useEffect(() => {
         const scrollArea = document.getElementById('scroll')
         if (scrollArea) {
-            scrollArea.scrollIntoView({ behavior: "smooth",block:"end" })
+            scrollArea.scrollIntoView({ behavior: "smooth", block: "end" })
         }
     })
 
@@ -73,16 +71,7 @@ const Room = () => {
     return (
         <div>
             <h1 className="title_chat">トーク</h1>
-            <div className="goto_update">
-                <Button size='small' variant='outlined' onClick={() => firebase.auth().signOut()}>ログアウト</Button>
-                <p><Link to="/update" className="link_chat">プロフィール変更</Link></p>
-            </div>
-            <div className="wrap_nav_chat">
-                <p className="nav_chat">トーク</p>
-                <p><Link to="/todo" className="link_chat">Todo</Link></p>
-                <p><Link to="/Recommended" className="link_chat">おすすめ</Link></p>
-                <p><Link to="/album" className="link_chat">卒業アルバム</Link></p>
-            </div>
+            
             <div className='took'>
                 <Paper>
                     {/* ↓今のメッセージの数 */}
@@ -104,7 +93,7 @@ const Room = () => {
                                 </div>}
                                 {message.uid === user.uid && <div className='messages-right'>
                                     <div>
-                                        <p >{message.user}</p>
+                                        {/* <p>{message.user}</p> */}
                                         <p className='message-right'>{message.content}</p>
                                     </div>
                                 </div>}

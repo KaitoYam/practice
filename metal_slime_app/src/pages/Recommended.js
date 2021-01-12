@@ -1,8 +1,5 @@
 import React from 'react'
 import css from './style.css'
-import { Link } from 'react-router-dom'
-import firebase from '../config/Firebase'
-import Button from '@material-ui/core/Button';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
@@ -54,13 +51,7 @@ const Recommended = () => {
     return (
         <div className={css}>
             <h1 className="title_osusume">おすすめ</h1>
-            <Button size="small" variant="outlined" onClick={() => firebase.auth().signOut()}>ログアウト</Button>
-            <div className="wrap_nav_osusume">
-                <p><Link to="/Room" className="link_osusume">トーク</Link></p>
-                <p><Link to="/todo" className="link_osusume">Todo</Link></p>
-                <p className="nav_osusume">おすすめ</p>
-                <p><Link to="/album" className="link_osusume">卒業アルバム</Link></p>
-            </div>
+            
             <Paper className={classes.root}>
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" centered>
                     <Tab label="山口海斗" {...a11yProps(0)} />
