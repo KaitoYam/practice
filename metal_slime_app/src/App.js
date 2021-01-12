@@ -8,28 +8,63 @@ import SignUp from './pages/SignUp'
 import Recommended from './pages/Recommended'
 import album from './pages/album'
 import Todo from './todo/Todo'
-
 import UpDate from './profile/UpDate'
 
 import { AuthProvider } from './AuthService'
-
 import LoggedInRoute from './LoggedInRoute'
+import firebase from './config/Firebase'
+
+import {
+    Button,
+    AppBar,
+    Toolbar,
+    Typography,
+    makeStyles
+} from '@material-ui/core'
+import Menu from './Menu/menu'
+
+const UseStyles = makeStyles({
+    root: {
+        flexGrow: 1,
+    },
+    title: {
+        flexGrow: 1,
+    },
+})
 
 const App = () => {
+    const classes = UseStyles();
     return (
-        <AuthProvider>
-            <Router>
-                <Switch>
-                    <Route exact path='/login' component={Login} />
-                    <Route exact path='/signup' component={SignUp} />
-                    <LoggedInRoute exact path='/update' component={UpDate} />
-                    <LoggedInRoute exact path='/Room' component={Room} />
-                    <LoggedInRoute exact path='/Todo' component={Todo} />
-                    <LoggedInRoute exact path='/Recommended' component={Recommended} />
-                    <LoggedInRoute exact path='/album' component={album} />
-                </Switch>
-            </Router>
-        </AuthProvider>
+        <>
+            <header>
+                <div className={classes.root}>
+                    <AppBar position='fixed' style={{ background: "linear-gradient(60deg, #29323c 0%, #485563 100%)" }}  >
+                        <Toolbar>
+                            <Menu />
+                            <Typography variant='h6' className={classes.title} style={{ color: "#ffb74d" }}>
+                                Code Village 41期生
+                        </Typography>
+                            <Button variant='contained' size='small' style={{ background: "#ffb74d" }} onClick={() => firebase.auth().signOut()}>
+                                Log out
+                        </Button>
+                        </Toolbar>
+                    </AppBar>
+                </div>
+            </header>
+            <AuthProvider>
+                <Router>
+                    <Switch>
+                        <Route exact path='/login' component={Login} />
+                        <Route exact path='/signup' component={SignUp} />
+                        <Route exact path='/update' component={UpDate} />
+                        <LoggedInRoute exact path='/Room' component={Room} />
+                        <Route exact path='/Todo' component={Todo} />
+                        <Route exact path='/Recommended' component={Recommended} />
+                        <Route exact path='/album' component={album} />
+                    </Switch>
+                </Router>
+            </AuthProvider>
+        </>
     )
 }
 

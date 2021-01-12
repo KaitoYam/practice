@@ -1,26 +1,25 @@
 .title_todo{
   background-color: skyblue;
   color: #000000;
-  margin-bottom: 20px;
+  margin: 65px 0 30px;
 }
 
-.wrap_todo{
-  width: 300px;
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 20px;
-}
 .link_todo{
   text-decoration: none;
 }
 .list_style{
   list-style: none;
 }
-.nav_todo{
-  text-decoration: underline;
-}
 
 .purpose{
   background-color: #ffff00;
   margin-bottom: 15px;
+}
+
+/* ------------ レスポンシブ（sp型:375px）-------------- */
+
+@media screen and (min-width:375px) and (max-width:675px) {
+  .title_todo{
+    margin: 57px 0 20px;
+  }
 }

@@ -1,28 +1,16 @@
 /* 山口が追加しました */
-.wrap_nav_update{
-  width: 390px;
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 20px;
-}
-
-/* 山口が追加しました */
 .title_update{
-color: #000000;
-background-color: skyblue;
-margin-bottom: 20px;
+  color: #000000;
+  background-color: skyblue;
+  margin: 65px 0 30px;
 }
 
-/* 山口が追加しました */
-.link_update{
-    text-decoration: none;
-}
 
 /* -------  プロフィールCSS　---------- */
 .profile {
   text-align: center;
   position: relative;
-  width: 400px;
+  width: 330px;
   margin: 0 auto;
 }
 .preview {
@@ -45,4 +33,12 @@ margin-bottom: 20px;
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+/* ------------ レスポンシブ（sp型:375px）-------------- */
+
+@media screen and (min-width:375px) and (max-width:675px) {
+  .title_update {
+    margin: 55px 0 40px;
+  }
 }
