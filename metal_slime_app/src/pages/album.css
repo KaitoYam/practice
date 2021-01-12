@@ -6,23 +6,13 @@
 .title_album{
     color: #000000;
     background-color: skyblue;
-    margin-bottom: 20px;
+    margin: 65px 0 30px;
 }
 
-/* 山口が追加しました */
-.wrap_nav_album{
-    width: 300px;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 20px;
-}
+/* ------------ レスポンシブ（sp型:375px）-------------- */
 
-/* 山口が追加しました */
-.link_album{
-    text-decoration: none;
-}
-
-/* 山口が追加しました */
-.nav_album{
-    text-decoration: underline;
+@media screen and (min-width:375px) and (max-width:675px) {
+  .title_album{
+    margin: 57px 0 20px;
+  } 
 }

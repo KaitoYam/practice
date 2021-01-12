@@ -42,7 +42,7 @@
 
 .room-ul {
     width: 100%;
-    height: 400px;
+    height: 415px;
     overflow-y: scroll;
     display: inline-block;
 }
@@ -68,7 +68,7 @@
     font-size: 18px;
     background-color: lightgray;
     border-radius: 5px;
-    margin-left: 15px;
+    margin: 0 55px 0 15px;
     position: relative;
 }
 .message-left::before {
@@ -88,14 +88,14 @@
     background-color: dodgerblue;
     border-radius: 5px;
     color: #fff;
-    margin-right: 20px;
+    margin: 0 20px 0 55px;
     position: relative;
 }
 .message-right::before {
     content: '';
     position: absolute;
     top: 3px;
-    right: -18px;
+    right: -17px;
     border: 8px solid transparent;
     border-left: 18px solid dodgerblue;
     -webkit-transform: rotate(-35deg);
@@ -117,29 +117,12 @@
 
 
 /* 山口が追加しました */
-.wrap_nav_chat{
-  width: 300px;
-  display: flex;
-  justify-content: space-between;
-  padding-bottom: 20px;
-}
-
-/* 山口が追加しました */
 .title_chat{
 color: #000000;
 background-color: rgb(135, 207, 235);
-margin-bottom: 20px;
+margin: 65px 0 30px;
 }
 
-/* 山口が追加しました */
-.nav_chat{
-    text-decoration: underline;
-}
-
-/* 山口が追加しました */
-.link_chat{
-    text-decoration: none;
-}
 
 /* 山口が追加しました */
 .goto_update{
@@ -151,6 +134,9 @@ margin-bottom: 20px;
 /* ------------ レスポンシブ（sp型:375px）-------------- */
 
 @media screen and (min-width:375px) and (max-width:675px) {
+    .title_chat {
+        margin: 57px 0 20px;
+    }
     .took {
         width: 90%;
     }
@@ -159,7 +145,7 @@ margin-bottom: 20px;
         width: 70%;
     }
     .room-ul {
-        height: 550px;
+        height: 600px;
     }
     .messages {
         font-size: 14px;
@@ -178,6 +164,12 @@ margin-bottom: 20px;
         border-bottom: 8px solid #697b91;
         top: -14px;
         left: -4px;
+    }
+    .message-right {
+        font-size: 12px;
+    }
+    .message-left {
+        font-size: 12px;
     }
 }
 

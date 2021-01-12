@@ -1,9 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react'
 
-import { Link } from 'react-router-dom'
 import profile from '../img/profile.img.jpg'
 import './UpDate.css'
-import { Button, Paper, Fab } from '@material-ui/core'
+import { Paper, Fab } from '@material-ui/core'
 import AddPhotoAlternateIcon from '@material-ui/icons/AddPhotoAlternate'
 
 import firebase from '../config/Firebase'
@@ -15,7 +14,7 @@ const UpDate = () => {
     const user = useContext(AuthContext)
 
     useEffect(() => {
-        firebase.storage().ref().child(`images/${user.uid}`).getDownloadURL().then(fireBaseUrl => {
+        firebase.storage().ref().child(`images/${user}`).getDownloadURL().then(fireBaseUrl => {
             //アップロードした画像のURLを取得
             setImage(fireBaseUrl)
         })
@@ -46,16 +45,9 @@ const UpDate = () => {
 
 
     return (
-        <div>
+        <>
             <h1 className="title_update">プロフィール編集</h1>
 
-            <div className="wrap_nav_update">
-                <p><Link to="/room" className="link_update">トーク</Link></p>
-                <p><Link to="/todo" className="link_update">Todo</Link></p>
-                <p><Link to="/Recommended" className="link_update">おすすめ</Link></p>
-                <p><Link to="/album" className="link_update">卒業アルバム</Link></p>
-                <Button size="small" variant="outlined" onClick={() => firebase.auth().signOut()}>ログアウト</Button>
-            </div>
             <div className='profile'>
                 <Paper style={{ padding: 16 }} elevation={1} >
                     <div className='preview'>
@@ -71,7 +63,7 @@ const UpDate = () => {
                     </div>
                 </Paper>
             </div>
-        </div>
+        </>
     )
 }
 

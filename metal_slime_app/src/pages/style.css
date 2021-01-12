@@ -81,6 +81,12 @@ iframe {
     height: 100%;
 }
 
+/* 山口が追加しました */
+.title_osusume{
+    color: #000000;
+    background-color: skyblue;
+    margin: 65px 0 30px;
+}
 
 /*====================
 PCを基本設計にする
@@ -135,8 +141,6 @@ PCを基本設計にする
         width: 100%;
         height: 100%;
     }
- 
- 
 }
  
  
@@ -161,30 +165,11 @@ PCを基本設計にする
         width: 100%;
         height: 100%;
     }
+    .title_osusume{
+        margin: 57px 0 20px;
+    }
 }
 
-/* 山口が追加しました */
-.title_osusume{
-    color: #000000;
-    background-color: skyblue;
-    margin-bottom: 20px;
-}
 
-/* 山口が追加しました */
-.wrap_nav_osusume{
-    width: 300px;
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 20px;
-}
 
-/* 山口が追加しました */
-.link_osusume{
-    text-decoration: none;
-}
-
-/* 山口が追加しました */
-.nav_osusume{
-    text-decoration: underline;
-}
 
