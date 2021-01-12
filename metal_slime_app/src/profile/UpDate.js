@@ -14,11 +14,14 @@ const UpDate = () => {
     const user = useContext(AuthContext)
 
     useEffect(() => {
-        firebase.storage().ref().child(`images/${user}`).getDownloadURL().then(fireBaseUrl => {
-            //アップロードした画像のURLを取得
-            setImage(fireBaseUrl)
-        })
-    }, [])
+        if(user) {
+
+            firebase.storage().ref().child(`images/${user}`).getDownloadURL().then(fireBaseUrl => {
+                //アップロードした画像のURLを取得
+                setImage(fireBaseUrl)
+            })
+        }
+    }, [user])
 
     const handleImage = e => {
         const images = e.target.files
