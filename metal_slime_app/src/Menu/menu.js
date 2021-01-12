@@ -16,7 +16,7 @@ import { AuthContext } from '../AuthService'
 const UseStyles = makeStyles({
     list: {
         width: 250,
-    },
+    }
 });
 
 const Menu = () => {
