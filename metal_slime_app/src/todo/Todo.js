@@ -5,7 +5,7 @@ import './todo.css'
 import firebase from '../config/Firebase'
 
 //MaaterialUI
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 
 
 const Todo = () => {
@@ -21,13 +21,13 @@ const Todo = () => {
         user: user.displayName
       })
   }
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-      },
-    },
-  }));
+  // const useStyles = makeStyles((theme) => ({
+  //   root: {
+  //     '& > *': {
+  //       margin: theme.spacing(1),
+  //     },
+  //   },
+  // }));
 
   useEffect(() => {
     if (user) {
@@ -49,7 +49,7 @@ const Todo = () => {
   }, [user])
 
   //MaterialUI
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
     <>

@@ -5,9 +5,9 @@
 	box-sizing: border-box;
 }
 
-body {
+/* body {
     margin: 2rem;
-}
+} */
 
 .tab_radio{
     /*ラジオボタンは表示しない*/
@@ -87,6 +87,13 @@ iframe {
     background-color: skyblue;
     margin: 65px 0 30px;
 }
+
+
+/* 鈴木が追加しました */
+.left-side {
+    margin-left: 2rem;
+}
+
 
 /*====================
 PCを基本設計にする
