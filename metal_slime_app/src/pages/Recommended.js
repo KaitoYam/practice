@@ -51,7 +51,6 @@ const Recommended = () => {
     return (
         <div className={css}>
             <h1 className="title_osusume">おすすめ</h1>
-            
             <Paper className={classes.root}>
                 <Tabs value={value} onChange={handleChange} aria-label="simple tabs example" centered>
                     <Tab label="山口海斗" {...a11yProps(0)} />
@@ -66,28 +65,28 @@ const Recommended = () => {
             <input type="radio" name="tab_item" id="tab_radio_C" className="tab_radio" />
             <label htmlFor="tab_radio_C" className="tab_menu">松本彪</label> */}
             <TabPanel value={value} index={0}>
-                <ul>
-                    <li>言語に限らず、firestoreやwordpressなど幅広移動ががある。動画も一つ一つが軽いので取り組みやすいです！</li>
+                <ul className='left-side'>
+                    <li >言語に限らず、firestoreやwordpressなど幅広移動ががある。動画も一つ一つが軽いので取り組みやすいです！</li>
                     <a href="https://dotinstall.com/">ドットインストール</a>
-                    <li>gitのコマンドについて漫画で教えてくれます。意外とわかりやすい。</li>
+                    <li >gitのコマンドについて漫画で教えてくれます。意外とわかりやすい。</li>
                     <a href="https://www.r-staffing.co.jp/engineer/entry/20190621_1">gitを漫画で理解</a>
                 </ul>
       </TabPanel>
             <TabPanel value={value} index={1}>
-                <ul>
-                    <li>gitコマンドの意味がまとまっていて、分からない時に役立ちます！</li>
+                <ul className='left-side'>
+                    <li >gitコマンドの意味がまとまっていて、分からない時に役立ちます！</li>
                     <a href="https://kitsune.blog/git-command">gitコマンドの使い方 まとめ集</a>
-                    <li>VS codeのショートカットキーで作業効率が上がるので便利です！</li>
+                    <li >VS codeのショートカットキーで作業効率が上がるので便利です！</li>
                     <div id="iframe-parent">
-                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/cNyvefTJOcM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>【完全保存版】VS Code ショートカット</iframe>
+                        <iframe width="1280" height="720" src="https://www.youtube.com/embed/cNyvefTJOcM" frameorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>【完全保存版】VS Code ショートカット</iframe>
                     </div>
                 </ul>
       </TabPanel>
             <TabPanel value={value} index={2}>
-                <ul>
-                    <li>初心者でもわかりやすいコードの基本的な書き方が学べます。</li>
+                <ul className='left-side'>
+                    <li >初心者でもわかりやすいコードの基本的な書き方が学べます。</li>
                     <a href="https://prog-8.com/">Progate</a>
-                    <li>gitがわからなくなったときにこれを見れば大体解決できます。</li>
+                    <li >gitがわからなくなったときにこれを見れば大体解決できます。</li>
                     <a href="https://backlog.com/ja/git-tutorial/">サル先生のGit入門</a>
                 </ul>
       </TabPanel>

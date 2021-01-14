@@ -1,0 +1,21 @@
+.main {
+    margin: 2rem;
+    height:530px;
+}
+
+.header-bgc {
+    background: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+
+.footer {
+    text-align: center;
+}
+
+
+/* ------------ レスポンシブ（sp型:375px）-------------- */
+
+@media screen and (min-width:375px) and (max-width:675px) {
+    .main{
+      height: 695px;
+    }
+  }

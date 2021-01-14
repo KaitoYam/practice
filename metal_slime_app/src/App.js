@@ -23,12 +23,15 @@ import {
 } from '@material-ui/core'
 import Menu from './Menu/menu'
 
+import './App.css'
+
 const UseStyles = makeStyles({
     root: {
         flexGrow: 1,
     },
     title: {
         flexGrow: 1,
+        color: "#ffb74d",
     },
 })
 
@@ -38,32 +41,37 @@ const App = () => {
         <>
             <header>
                 <div className={classes.root}>
-                    <AppBar position='fixed' style={{ background: "linear-gradient(60deg, #29323c 0%, #485563 100%)" }}  >
+                    <AppBar position='fixed' className='header-bgc'>
                         <Toolbar>
                             <Menu />
-                            <Typography variant='h6' className={classes.title} style={{ color: "#ffb74d" }}>
+                            <Typography variant='h6' className={classes.title} >
                                 Code Village 41期生
                         </Typography>
                             <Button variant='contained' size='small' style={{ background: "#ffb74d" }} onClick={() => firebase.auth().signOut()}>
                                 Log out
-                        </Button>
+                            </Button>
                         </Toolbar>
                     </AppBar>
                 </div>
             </header>
-            <AuthProvider>
-                <Router>
-                    <Switch>
-                        <Route exact path='/login' component={Login} />
-                        <Route exact path='/signup' component={SignUp} />
-                        <Route exact path='/update' component={UpDate} />
-                        <LoggedInRoute exact path='/Room' component={Room} />
-                        <Route exact path='/Todo' component={Todo} />
-                        <Route exact path='/Recommended' component={Recommended} />
-                        <Route exact path='/album' component={album} />
-                    </Switch>
-                </Router>
-            </AuthProvider>
+            <main className='main'>
+                <AuthProvider>
+                    <Router>
+                        <Switch>
+                            <Route exact path='/login' component={Login} />
+                            <Route exact path='/signup' component={SignUp} />
+                            <Route exact path='/update' component={UpDate} />
+                            <LoggedInRoute exact path='/Room' component={Room} />
+                            <Route exact path='/Todo' component={Todo} />
+                            <Route exact path='/Recommended' component={Recommended} />
+                            <Route exact path='/album' component={album} />
+                        </Switch>
+                    </Router>
+                </AuthProvider>
+            </main>
+            <footer className='footer' >
+                <p>@Code Village 41期生　Team-B チーム開発</p>
+            </footer>
         </>
     )
 }

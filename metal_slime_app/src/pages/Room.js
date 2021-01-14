@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useRef } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import firebase from '../config/Firebase'
 
 import { AuthContext } from '../AuthService'
@@ -30,14 +30,6 @@ const Room = () => {
 
         })
     }, [])
-
-    const scrollEndRef = useRef(null)
-    useEffect(() => {
-        const scrollArea = document.getElementById('scroll')
-        if (scrollArea) {
-            scrollArea.scrollIntoView({ behavior: "smooth", block: "end" })
-        }
-    })
 
 
     const handleSubmit = e => {
@@ -75,7 +67,7 @@ const Room = () => {
             <div className='took'>
                 <Paper>
                     {/* ↓今のメッセージの数 */}
-                    <div className='room-ul' id='scroll' ref={scrollEndRef} >
+                    <div className='room-ul' >
                         {messages
                             ?
                             messages.map((message, id) =>
