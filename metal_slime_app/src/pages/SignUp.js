@@ -5,7 +5,7 @@ import firebase from '../config/Firebase'
 
 import './signUp&login.css'
 
-const SignUp = () => {
+const SignUp = ({history}) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -18,6 +18,7 @@ const SignUp = () => {
                 user.updateProfile({
                     displayName: name
                 })
+                history.push('/Room')
             })
             .catch(err => {
                 console.log(err)
