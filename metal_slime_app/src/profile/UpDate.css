@@ -2,7 +2,7 @@
 .title_update{
   color: #000000;
   background-color: skyblue;
-  margin: 65px 0 30px;
+  margin: 0 0 30px;
 }
 
 
@@ -39,6 +39,6 @@
 
 @media screen and (min-width:375px) and (max-width:675px) {
   .title_update {
-    margin: 55px 0 40px;
+    margin: 0 0 40px;
   }
 }

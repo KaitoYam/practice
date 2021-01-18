@@ -11,7 +11,7 @@
 ------------------*/
 .signlog-page {
     width: 60%;
-    margin: 4rem auto;
+    margin: 1rem auto;
 }
 .signlog-form {
     text-align: center;
@@ -72,7 +72,6 @@
 @media screen and (min-width:375px) and (max-width:675px) {
     .signlog-page {
         width: 100%;
-        margin: 0 auto;
     }
     .signlog-title {
         margin-bottom: 20px;

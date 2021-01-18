@@ -6,13 +6,13 @@
 .title_album{
     color: #000000;
     background-color: skyblue;
-    margin: 65px 0 30px;
+    margin: 0 0 30px;
 }
 
 /* ------------ レスポンシブ（sp型:375px）-------------- */
 
 @media screen and (min-width:375px) and (max-width:675px) {
   .title_album{
-    margin: 57px 0 20px;
+    margin: 0 0 20px;
   } 
 }

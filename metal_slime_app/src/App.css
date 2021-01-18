@@ -1,6 +1,6 @@
 .main {
-    margin: 2rem;
-    height:530px;
+    margin: 0 2rem;
+    height:550px;
 }
 
 .header-bgc {
@@ -11,11 +11,26 @@
     text-align: center;
 }
 
+.app-image {
+    height: 100%;
+    width: 100%;
+}
+.header-icon {
+    margin-right: 1rem;
+}
+
 
 /* ------------ レスポンシブ（sp型:375px）-------------- */
 
 @media screen and (min-width:375px) and (max-width:675px) {
     .main{
-      height: 695px;
+      height: 680px;
+      margin: 0 1rem;
+    }
+    .footer {
+        font-size: 12px;
+    }
+    .header-icon {
+        margin: 0;
     }
   }

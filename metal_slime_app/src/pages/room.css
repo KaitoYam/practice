@@ -11,33 +11,18 @@
     padding: 10px 20px;
     border-radius: 20px;
     width: 55%;
+    margin-top: 1rem;
     background-color: rgb(43, 180, 180);
-    margin-top: 20px;
 }
 .took-form2 {
     display: flex;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 #tuika {
     border: 0px;
     width: 90%;
     height: 20px;
     margin: auto 0;
-}
-.took-button {
-    position: relative;
-    height: 10px;
-    width: 10px;
-    margin-top: 6px;
-    background-color: #697b91;   
-}
-.took-button::before{
-    position: absolute;
-    content:'';
-    border: 10px solid transparent;
-    border-bottom: 10px solid #697b91;
-    top: -17px;
-    left: -5px;
 }
 
 .room-ul {
@@ -120,7 +105,7 @@
 .title_chat{
 color: #000000;
 background-color: rgb(135, 207, 235);
-margin: 65px 0 20px;
+margin: 0 0 20px;
 }
 
 
@@ -135,17 +120,16 @@ margin: 65px 0 20px;
 
 @media screen and (min-width:375px) and (max-width:675px) {
     .title_chat {
-        margin: 57px 0 20px;
+        margin: 0 0 20px;
     }
     .took {
-        width: 90%;
+        width: 100%;
     }
     .took-form {
-        margin-top: 10px;
         width: 70%;
     }
     .room-ul {
-        height: 600px;
+        height: 530px;
     }
     .messages {
         font-size: 14px;
@@ -153,7 +137,6 @@ margin: 65px 0 20px;
     }
     #tuika {
         width: 80%;
-        height: 15px;
     }
     .took-button {
         height: 8px;

@@ -5,10 +5,10 @@ import { AuthContext } from '../AuthService'
 
 import './room.css'
 import profile from '../img/profile.img.jpg'
-import { Paper, Avatar } from '@material-ui/core'
+import { Paper, Avatar, Button } from '@material-ui/core'
+import SendIcon from '@material-ui/icons/Send'
 
 const Room = () => {
-
     const [messages, setMessages] = useState(null)
     const [value, setValue] = useState('')
     const [image, setImage] = useState('')
@@ -27,9 +27,10 @@ const Room = () => {
             })
         firebase.storage().ref().child(`/images/${user.uid}`).getDownloadURL().then(fireBaseUrl => {
             setImage(fireBaseUrl)
-
         })
+        console.log('image')
     }, [])
+    console.log(image)
 
 
     const handleSubmit = e => {
@@ -63,7 +64,7 @@ const Room = () => {
     return (
         <div>
             <h1 className="title_chat">トーク</h1>
-            
+
             <div className='took'>
                 <Paper>
                     {/* ↓今のメッセージの数 */}
@@ -96,16 +97,18 @@ const Room = () => {
                     </div>
                 </Paper>
                 {/* ↓自分でメッセージをつくりだす */}
-                <form onSubmit={handleSubmit} className='took-form'>
-                    <div className='took-form2'>
+                <form onSubmit={handleSubmit} className='took-form2' >
+                    <div className='took-form'>
                         <input
                             type='text'
                             id='tuika'
                             placeholder='メッセージを入力'
                             onChange={e => setValue(e.target.value)}
                         />
-                        <div type='submit' className='took-button'></div>
                     </div>
+                    <Button variant="contained" color="primary" style={{background:'#616161',marginTop:'1rem'}} >
+                        <SendIcon />
+                    </Button>
                 </form>
             </div>
         </div>
