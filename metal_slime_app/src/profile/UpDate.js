@@ -14,14 +14,15 @@ const UpDate = () => {
     const user = useContext(AuthContext)
 
     useEffect(() => {
-        if(user) {
-
-            firebase.storage().ref().child(`images/${user}`).getDownloadURL().then(fireBaseUrl => {
+        if (user) {
+            firebase.storage().ref().child(`images/${user.uid}`).getDownloadURL().then(fireBaseUrl => {
                 //アップロードした画像のURLを取得
                 setImage(fireBaseUrl)
             })
         }
     }, [user])
+    console.log(image)
+    console.log('image')
 
     const handleImage = e => {
         const images = e.target.files
@@ -36,7 +37,6 @@ const UpDate = () => {
             // 通信が成功した時の処理(then)
             uploadTask.snapshot.ref.getDownloadURL().then((fireBaseUrl => {
                 setImage(fireBaseUrl)
-                console.log('new', image)
             }))
         })
             .then(() => {

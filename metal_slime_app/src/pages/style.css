@@ -85,7 +85,7 @@ iframe {
 .title_osusume{
     color: #000000;
     background-color: skyblue;
-    margin: 65px 0 30px;
+    margin: 0 0 30px;
 }
 
 
@@ -173,7 +173,7 @@ PCを基本設計にする
         height: 100%;
     }
     .title_osusume{
-        margin: 57px 0 20px;
+        margin: 0 0 20px;
     }
 }
 

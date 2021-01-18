@@ -1,0 +1,93 @@
+.start {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.start2 {
+    position: absolute;
+    top: 40%;
+    right: 35%;
+}
+
+.signup {
+    position: absolute;
+    top: 70%;
+    left: 40%;
+    padding: 15px;
+    background-color: limegreen;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login {
+    position: absolute;
+    top: 70%;
+    right: 40%;
+    padding: 15px;
+    background-color: dodgerblue;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.start-title {
+    line-height: 60px;
+    position: relative;
+    height: 60px;
+    margin: 2em 50px 1em;
+    padding: 0 2rem;
+    text-align: center;
+    color: #fff;
+    background: #fa4141;
+  }
+  
+  .start-title:before,
+  .start-title:after {
+    position: absolute;
+    top: 0;
+    display: block;
+    height: 0;
+    content: '';
+    border: 30px solid #fa4141;
+  }
+  
+  .start-title:before {
+    left: -40px;
+    border-left-width: 15px;
+    border-left-color: transparent;
+  }
+  
+  .start-title:after {
+    right: -40px;
+    border-right-width: 15px;
+    border-right-color: transparent;
+  }
+  
+  .start-title span {
+    position: relative;
+    display: block;
+  }
+
+/* ------------ レスポンシブ（sp型:375px）-------------- */
+
+@media screen and (min-width:375px) and (max-width:675px) {
+    .start2 {
+        top: 30%;
+        right: 0;
+        width: 100%;
+    }
+    .start-title{
+      font-size: 17px;
+      padding:30px;
+      line-height: 10px;
+    }
+    .signup {
+        top: 50%;
+        left: 10%;
+        padding: 10px;
+    }
+    .login {
+        top: 50%;
+        right: 10%;
+        padding: 10px;
+    }
+}

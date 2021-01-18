@@ -28,7 +28,7 @@ const Menu = () => {
     return (
         <>
             {
-                user === user &&
+                user &&
                 <>
                     <IconButton
                         style={{ color: "#ffb74d" }}

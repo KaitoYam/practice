@@ -1,7 +1,7 @@
 .title_todo{
   background-color: skyblue;
   color: #000000;
-  margin: 65px 0 30px;
+  margin: 0 0 30px;
 }
 
 .link_todo{
@@ -20,6 +20,6 @@
 
 @media screen and (min-width:375px) and (max-width:675px) {
   .title_todo{
-    margin: 57px 0 20px;
+    margin: 0 0 20px;
   }
 }
