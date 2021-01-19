@@ -10,10 +10,25 @@
 .list_style{
   list-style: none;
 }
+.list_width {
+  width: 50%;
+}
 
 .purpose{
   background-color: #ffff00;
   margin-bottom: 15px;
+  width: 200px;
+}
+.Todo_pages{
+  padding: 5px;
+}
+.li {
+  margin: 5px 0;
+  display: flex;
+}
+.list_Name {
+  font-size: 18px;
+  margin: 0.5rem;
 }
 
 /* ------------ レスポンシブ（sp型:375px）-------------- */

@@ -3,6 +3,7 @@ import Form from './Form'
 import { AuthContext } from '../AuthService'
 import './todo.css'
 import firebase from '../config/Firebase'
+import { Paper } from '@material-ui/core'
 
 //MaaterialUI
 // import { makeStyles } from '@material-ui/core/styles';
@@ -21,23 +22,16 @@ const Todo = () => {
         user: user.displayName
       })
   }
-  // const useStyles = makeStyles((theme) => ({
-  //   root: {
-  //     '& > *': {
-  //       margin: theme.spacing(1),
-  //     },
-  //   },
-  // }));
 
   useEffect(() => {
     if (user) {
       firebase.firestore().collection('todos').where("user", "==", user.displayName)
-      .onSnapshot((snapshot) => {
-        const todos = snapshot.docs.map(doc => {
-          return doc.data()
+        .onSnapshot((snapshot) => {
+          const todos = snapshot.docs.map(doc => {
+            return doc.data()
+          })
+          setTodos(todos)
         })
-        setTodos(todos)
-      })
       var delete_todos = firebase.firestore().collection('todos').where("state", "==", true);
       delete_todos.get().then(function (querySnapshot) {
         querySnapshot.forEach(function (doc) {
@@ -48,33 +42,41 @@ const Todo = () => {
     }
   }, [user])
 
-  //MaterialUI
-  // const classes = useStyles();
-
   return (
     <>
       <h1 className="title_todo">Todoリスト</h1>
 
       <h4 className="purpose">目標：アプリを一つ作る</h4>
-      <Form addTodo={addTodo} />
-      <ul className="list_style">
-        {todos ?
-          todos.map((todo, id) =>
-          (<li key={id}>
-            <input type="checkbox" onChange={() => {
-              firebase.firestore().collection('todos').where("content", "==", todo.content).get().then(function (querySnapshot) {
-                querySnapshot.forEach(function (doc) {
-                  doc.ref.update({ state: !doc.data().state });
-                });
-              })
-            }}
-            />
-            <span>{todo.content}</span>
-          </li>)
-          ) :
-          <p>...loading</p>
-        }
-      </ul>
+      <Paper>
+        <div className='Todo_pages'>
+          <Form addTodo={addTodo} />
+          <div className='list_width'>
+            <ul className="list_style">
+              {todos ?
+                todos.map((todo, id) =>
+                (<li key={id} className='li'>
+                  <input
+                    className='list_Name'
+                    type="checkbox"
+                    onChange={() => {
+                      firebase.firestore().collection('todos').where("content", "==", todo.content).get().then(function (querySnapshot) {
+                        querySnapshot.forEach(function (doc) {
+                          doc.ref.update({ state: !doc.data().state });
+                        });
+                      })
+                    }}
+                  />
+                  <Paper>
+                    <span className='list_Name'>{todo.content}</span>
+                  </Paper>
+                </li>)
+                ) :
+                <p>...loading</p>
+              }
+            </ul>
+          </div>
+        </div>
+      </Paper>
     </>
   )
 }
