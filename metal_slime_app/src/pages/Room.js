@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import firebase from '../config/Firebase'
 
 import { AuthContext } from '../AuthService'
@@ -31,6 +31,16 @@ const Room = () => {
         console.log('image')
     }, [])
     console.log(image)
+
+    // スクロール内の下へ移動
+    const chatScrollEnd = useRef(null)
+
+    const scrollToBottom = () => {
+        if (chatScrollEnd.current) {
+           chatScrollEnd.current.scrollIntoView({ block: "end", behavior: "smooth" })
+        }
+    }
+    useEffect(scrollToBottom, [messages])
 
 
     const handleSubmit = e => {
@@ -76,7 +86,7 @@ const Room = () => {
                                 {message.uid !== user.uid && <div className='messages-left'>
                                     <Avatar>
                                         <div className='icon'>
-                                            <img className='icon-img' src={message.image ? message.image : profile} />
+                                            <img className='icon-img' src={message.image ? message.image : profile} alt='プロフィール画像' />
                                         </div>
                                     </Avatar>
                                     <div>
@@ -94,6 +104,7 @@ const Room = () => {
                             ) :
                             <p>...loading</p>
                         }
+                        <div ref={chatScrollEnd} />
                     </div>
                 </Paper>
                 {/* ↓自分でメッセージをつくりだす */}
@@ -106,7 +117,7 @@ const Room = () => {
                             onChange={e => setValue(e.target.value)}
                         />
                     </div>
-                    <Button variant="contained" color="primary" style={{background:'#616161',marginTop:'1rem'}} >
+                    <Button variant="contained" color="primary" style={{ background: '#616161', marginTop: '1rem' }} >
                         <SendIcon />
                     </Button>
                 </form>

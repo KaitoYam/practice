@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 import Room from './pages/Room'

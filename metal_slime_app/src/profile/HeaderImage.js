@@ -23,7 +23,7 @@ const HeaderImage = () => {
             { user &&
                 <>
                     <Avatar>
-                        <img className='app-image' src={image ? image : profile} />
+                        <img className='app-image' src={image ? image : profile} alt='NOプロフィール' />
                     </Avatar>
                 </>
             }
