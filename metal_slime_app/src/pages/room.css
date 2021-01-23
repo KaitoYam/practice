@@ -87,6 +87,13 @@
     transform: rotate(-35deg);
 }
 
+.time-right {
+    margin-left: 15px;
+}
+.time-left {
+    float: right;
+    margin-right: 22px;
+}
 
 .icon {
     width: 40px;
@@ -153,6 +160,9 @@ margin: 0 0 20px;
     }
     .message-left {
         font-size: 12px;
+    }
+    .message-time {
+        font-size: 10px;
     }
 }
 
