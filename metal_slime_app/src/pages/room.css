@@ -68,25 +68,28 @@
 }
 
 .message-right {
-    padding: 5px 10px;
+    padding: 5px 25px 5px 10px;
     font-size: 18px;
     background-color: dodgerblue;
     border-radius: 5px;
     color: #fff;
-    margin: 0 20px 0 55px;
+    margin: 0 25px 0 55px;
     position: relative;
 }
 .message-right::before {
     content: '';
     position: absolute;
-    top: 3px;
-    right: -17px;
+    top: 2px;
+    right: -19px;
     border: 8px solid transparent;
     border-left: 18px solid dodgerblue;
     -webkit-transform: rotate(-35deg);
     transform: rotate(-35deg);
 }
 
+.message-time {
+    font-size: 14px;
+}
 .time-right {
     margin-left: 15px;
 }

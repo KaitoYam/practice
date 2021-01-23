@@ -71,6 +71,7 @@ const Room = () => {
         ])
     }
 
+    let view = ''
 
     return (
         <div>
@@ -84,6 +85,12 @@ const Room = () => {
                             ?
                             messages.map((message, id) =>
                             (<React.Fragment key={id} >
+                                <p>{(() => {
+                                    if(view !== moment(message.createAt).format('YYYY/MM/DD')){
+                                        view = moment(message.createAt).format('YYYY/MM/DD')
+                                        return(view)
+                                    }
+                                })()}</p>
                                 {message.uid !== user.uid && <div className='messages-left'>
                                     <Avatar>
                                         <div className='icon'>
