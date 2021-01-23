@@ -7,6 +7,7 @@ import './room.css'
 import profile from '../img/profile.img.jpg'
 import { Paper, Avatar, Button } from '@material-ui/core'
 import SendIcon from '@material-ui/icons/Send'
+import moment from 'moment'　// その時の時間表示
 
 const Room = () => {
     const [messages, setMessages] = useState(null)
@@ -32,12 +33,11 @@ const Room = () => {
     }, [])
     console.log(image)
 
-    // スクロール内の下へ移動
+    // スクロール内の下へ移動/ react-scroll-into-viewをインストール
     const chatScrollEnd = useRef(null)
-
     const scrollToBottom = () => {
         if (chatScrollEnd.current) {
-           chatScrollEnd.current.scrollIntoView({ block: "end", behavior: "smooth" })
+            chatScrollEnd.current.scrollIntoView({ block: "end", behavior: "smooth" })
         }
     }
     useEffect(scrollToBottom, [messages])
@@ -56,6 +56,7 @@ const Room = () => {
                 content: value,
                 image: image,
                 date: new Date(),
+                createAt: new Date().getTime(),　// 時間を取得
                 uid: user.uid //各々のユーザー情報(id)
             })
         setMessages([
@@ -64,7 +65,7 @@ const Room = () => {
                 user: user.displayName,
                 image: image,
                 content: value,
-                date: new Date(),
+                //date: new Date(),
                 uid: user.uid
             }
         ])
@@ -92,12 +93,13 @@ const Room = () => {
                                     <div>
                                         <p className='user-name'>{message.user}</p>
                                         <p className='message-left'>{message.content}</p>
+                                        <p className='message-time time-right'>{moment(message.createAt).format('A HH:mm')}</p>
                                     </div>
                                 </div>}
                                 {message.uid === user.uid && <div className='messages-right'>
                                     <div>
-                                        {/* <p>{message.user}</p> */}
                                         <p className='message-right'>{message.content}</p>
+                                        <p className='message-time time-left'>{moment(message.createAt).format('A HH:mm')}</p>
                                     </div>
                                 </div>}
                             </React.Fragment>)
