@@ -17,8 +17,8 @@ const Login = ({ history }) => {
             .then(() => {
                 history.push("/Room")
             })
-            .catch(err => {
-                console.log(err)
+            .catch(error => {
+                window.alert(error)
             })
     }
 
