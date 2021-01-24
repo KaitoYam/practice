@@ -20,7 +20,7 @@ const Todo = () => {
         content: contents,
         date: new Date(),
         user: user.displayName
-      })
+      })　// addTodoで入力フォームからコレクション作成をしている
   }
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const Todo = () => {
         .onSnapshot((snapshot) => {
           const todos = snapshot.docs.map(doc => {
             return doc.data()
-          })
+          }) // Todoのコレクション作成（ユーザー毎の管理をしている）
           setTodos(todos)
         })
       var delete_todos = firebase.firestore().collection('todos').where("state", "==", true);
@@ -47,9 +47,9 @@ const Todo = () => {
       <h1 className="title_todo">Todoリスト</h1>
 
       <h4 className="purpose">目標：アプリを一つ作る</h4>
-      <Paper>
-        <div className='Todo_pages'>
-          <Form addTodo={addTodo} />
+      <div className='Todo_pages'>
+        <Form addTodo={addTodo} />
+        <Paper>
           <div className='list_width'>
             <ul className="list_style">
               {todos ?
@@ -75,8 +75,8 @@ const Todo = () => {
               }
             </ul>
           </div>
-        </div>
-      </Paper>
+        </Paper>
+      </div>
     </>
   )
 }
