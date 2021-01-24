@@ -9,9 +9,10 @@
 }
 .list_style{
   list-style: none;
+  overflow-y: scroll;
 }
 .list_width {
-  width: 50%;
+  width: 100%;
 }
 
 .purpose{
@@ -36,5 +37,8 @@
 @media screen and (min-width:375px) and (max-width:675px) {
   .title_todo{
     margin: 0 0 20px;
+  }
+  .purpose {
+    margin-bottom: 5px;
   }
 }
