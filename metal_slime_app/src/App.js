@@ -39,53 +39,57 @@ const App = () => {
     const classes = UseStyles();
     return (
         <>
-            <header>
-                <div className={classes.root}>
-                    <AppBar position='sticky' className='header-bgc'>
-                        <Toolbar>
-                            <AuthProvider>
-                                <Router>
-                                    <Menu />
-                                </Router>
-                            </AuthProvider>
-                            <Typography variant='h6' className={classes.title} >
-                                Code Village 41期
+            <div className='position'>
+                <header>
+                    <div className={classes.root}>
+                        <AppBar position='sticky' className='header-bgc'>
+                            <Toolbar>
+                                <AuthProvider>
+                                    <Router>
+                                        <Menu />
+                                    </Router>
+                                </AuthProvider>
+                                <Typography variant='h6' className={classes.title} >
+                                    Code Village 41期
                             </Typography>
-                            <AuthProvider>
-                                <Router>
-                                    <div className='header-icon'>
-                                        <HeaderImage />
-                                    </div>
-                                </Router>
-                            </AuthProvider>
-                            <Button variant='contained' href='/login' size='small'
-                                style={{ background: "#ffb74d" }} onClick={() => firebase.auth().signOut()}
-                            >
-                                Log out
+                                <AuthProvider>
+                                    <Router>
+                                        <div className='header-icon'>
+                                            <HeaderImage />
+                                        </div>
+                                    </Router>
+                                </AuthProvider>
+                                <Button variant='contained' href='/login' size='small'
+                                    style={{ background: "#ffb74d" }} onClick={() => firebase.auth().signOut()}
+                                >
+                                    Log out
                             </Button>
-                        </Toolbar>
-                    </AppBar>
-                </div>
-            </header>
-            <main className='main'>
-                <AuthProvider>
-                    <Router>
-                        <Switch>
-                            <Route exact path='/signup' component={SignUp} />
-                            <Route exact path='/login' component={Login} />
-                            <Route exact path='/update' component={UpDate} />
-                            <LoggedInRoute exact path='/Room' component={Room} />
-                            <Route exact path='/Todo' component={Todo} />
-                            <Route exact path='/Recommended' component={Recommended} />
-                            <Route exact path='/album' component={album} />
-                            <Route exact path='' component={start} />
-                        </Switch>
-                    </Router>
-                </AuthProvider>
-            </main>
-            <footer className='footer' >
-                <p>@Code Village 41期生　Team-B チーム開発</p>
-            </footer>
+                            </Toolbar>
+                        </AppBar>
+                    </div>
+                </header>
+                <main className='main'>
+                    <div className='main2'>
+                        <AuthProvider>
+                            <Router>
+                                <Switch>
+                                    <Route exact path='/signup' component={SignUp} />
+                                    <Route exact path='/login' component={Login} />
+                                    <Route exact path='/update' component={UpDate} />
+                                    <LoggedInRoute exact path='/Room' component={Room} />
+                                    <Route exact path='/Todo' component={Todo} />
+                                    <Route exact path='/Recommended' component={Recommended} />
+                                    <Route exact path='/album' component={album} />
+                                    <Route exact path='' component={start} />
+                                </Switch>
+                            </Router>
+                        </AuthProvider>
+                    </div>
+                </main>
+                <footer className='footer' >
+                    <p className='footer-title'>@Code Village 41期生　Team-B チーム開発</p>
+                </footer>
+            </div>
         </>
     )
 }
