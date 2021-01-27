@@ -2,17 +2,17 @@
     position: relative;
     width: 100%;
     height: 80%;
-    margin-top: 3rem;
+    padding-top: 4rem;
 }
 .start2 {
-  width: 60%;
+  width: 50%;
   margin: 0 auto;
 }
 
 .signup {
     position: absolute;
-    top: 20%;
-    left: 35%;
+    top: 30%;
+    left: 37%;
     padding: 15px;
     background-color: limegreen;
     border-radius: 5px;
@@ -21,8 +21,8 @@
 
 .login {
     position: absolute;
-    top: 20%;
-    right: 35%;
+    top: 30%;
+    right: 37%;
     padding: 15px;
     background-color: dodgerblue;
     border-radius: 5px;
